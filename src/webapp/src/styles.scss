@@ -52,11 +52,14 @@ $custom-theme: mat.define-light-theme(
 );
 
 @include mat.all-component-themes($custom-theme);
+* {
+  font-family: "Jost", sans-serif;
+}
 html,
 body {
-  height: 100%;
+  font-size: 10px;
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Jost", "Helvetica Neue", sans-serif;
 }
