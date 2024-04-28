@@ -4,7 +4,8 @@
   left: 0;
   right: 0;
   padding: 2rem 1rem;
-
+  z-index: 100;
+  background-color: #fff;
   &__link {
     position: relative;
     cursor: pointer;
@@ -28,9 +29,15 @@
 }
 .desktop-nav.nav {
   display: none;
-  justify-content: space-between;
-  gap: 6rem;
-  align-items: center;
+  .wrapper {
+    display: flex;
+    max-width: 1600px;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: space-between;
+    gap: 6rem;
+    align-items: center;
+  }
   .nav__links {
     display: flex;
     align-items: center;
@@ -64,6 +71,7 @@
     transform-origin: left;
     transform: translateX(-100%);
     transition: transform 0.2s;
+    z-index: 100;
     &.active {
       transform: translateX(0);
     }
