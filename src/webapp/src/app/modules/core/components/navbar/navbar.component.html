@@ -29,21 +29,21 @@
     </div>
     <button
       *ngIf="!openNavbar"
-      class="icon"
+      class="ham_btn"
       mat-icon-button
       aria-label="Example icon button with a menu icon"
       (click)="toggleOpenNavbar()"
     >
-      <mat-icon>menu</mat-icon>
+      <mat-icon class="icon">menu</mat-icon>
     </button>
     <button
       *ngIf="openNavbar"
-      class="icon"
+      class="ham_btn"
       mat-icon-button
       aria-label="Example icon button with a menu icon"
       (click)="toggleOpenNavbar()"
     >
-      <mat-icon>close</mat-icon>
+      <mat-icon class="icon">close</mat-icon>
     </button>
   </div>
   <div class="nav__links" [ngClass]="{ active: openNavbar }">

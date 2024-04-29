@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from './home.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 @NgModule({
-  declarations: [HeaderComponent, HomeComponent],
+  declarations: [HeaderComponent, HomeComponent, AboutUsComponent],
   imports: [CommonModule, SharedModule],
   exports: [HomeComponent],
 })
