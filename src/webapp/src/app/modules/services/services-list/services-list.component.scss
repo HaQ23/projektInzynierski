@@ -1,0 +1,73 @@
+.employee {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0 2rem;
+  border-top: 2px solid #ededed;
+  max-width: 800px;
+  font-family: "Jost", sans-serif;
+  .numberService {
+    border-radius: 12px;
+    background-color: #ececec;
+    padding: 0.5rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+  &__name {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: "Jost", sans-serif;
+    margin: 0;
+    .icon-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .icon {
+        transform: scale(1.4);
+      }
+    }
+  }
+}
+.employee-offer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #ededed;
+  &:nth-last-of-type(1) {
+    border-bottom: none;
+  }
+  &__title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    font-family: "Jost", sans-serif;
+  }
+  &__description {
+    font-size: 1.6rem;
+  }
+  &__info-box {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 1.5rem;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+  &__currency {
+    font-weight: bold;
+    font-size: 1.6rem;
+  }
+  &__duration {
+    font-size: 1.4rem;
+    color: #9b9b9b;
+    font-weight: 500;
+    align-self: flex-end;
+  }
+}

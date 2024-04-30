@@ -1,0 +1,33 @@
+<div class="employee">
+  <h3 class="employee__name" (click)="toggleVisibilityServices()">
+    {{ employee.firstName }} {{ employee.lastName }}
+    <span class="icon-box">
+      <mat-icon class="icon" *ngIf="isVisible">keyboard_arrow_down</mat-icon>
+      <mat-icon class="icon" *ngIf="!isVisible">keyboard_arrow_right</mat-icon>
+    </span>
+  </h3>
+  <span class="numberService"
+    >{{ employee.employeeOfferList.length }}
+    {{ displayNumberOfService() }}</span
+  >
+</div>
+<ng-container *ngIf="isVisible">
+  <div
+    class="employee-offer"
+    *ngFor="let service of employee.employeeOfferList"
+  >
+    <div>
+      <h4 class="employee-offer__title">{{ service.title }}</h4>
+      <p class="employee-offer__description">{{ service.description }}</p>
+    </div>
+    <div class="employee-offer__info-box">
+      <div class="employee-offer__info">
+        <span class="employee-offer__currency">{{ service.price }}.00zl</span>
+        <span class="employee-offer__duration">{{ service.time }}min </span>
+      </div>
+      <button mat-raised-button color="primary" class="employee-offer__btn">
+        Umów
+      </button>
+    </div>
+  </div>
+</ng-container>

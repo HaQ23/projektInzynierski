@@ -1,0 +1,22 @@
+.services {
+  padding: 6rem 2rem;
+
+  &__title {
+    margin-bottom: 0.75rem;
+    font-size: 2rem;
+    font-family: "Jost", sans-serif;
+    color: #b7a379;
+    font-weight: 500;
+  }
+  &__subTitle {
+    margin-bottom: 4rem;
+    padding-bottom: 2rem;
+    font-size: 2.2rem;
+    font-weight: bold;
+    font-family: "Jost", sans-serif;
+    border-bottom: 2px solid #b7a379;
+  }
+  &__employee-items {
+    max-width: 800px;
+  }
+}
