@@ -1,12 +1,12 @@
 .nav {
   position: sticky;
-
   top: 0;
   left: 0;
   right: 0;
   padding: 2rem 2rem;
   z-index: 100;
   background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
   .ham_btn {
     padding-right: 0;
     .icon {
@@ -16,6 +16,8 @@
   &__link {
     position: relative;
     cursor: pointer;
+    color: #000;
+    text-decoration: none;
   }
 
   &__link::after {

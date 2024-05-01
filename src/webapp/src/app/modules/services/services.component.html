@@ -1,0 +1,11 @@
+<section class="services">
+  <div class="wrapper">
+    <h2 class="services__title">Usługi</h2>
+    <h3 class="services__subTitle">Nasza oferta</h3>
+    <div class="services__list">
+      <div class="services__employee-items" *ngFor="let employee of employees">
+        <app-services-list [employee]="employee"></app-services-list>
+      </div>
+    </div>
+  </div>
+</section>
