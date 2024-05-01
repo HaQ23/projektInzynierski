@@ -1,6 +1,10 @@
 .services {
   padding: 6rem 2rem;
-
+  min-height: 80vh;
+  .wrapper {
+    margin: 0 auto;
+    max-width: 1600px;
+  }
   &__title {
     margin-bottom: 0.75rem;
     font-size: 2rem;
@@ -18,5 +22,10 @@
   }
   &__employee-items {
     max-width: 800px;
+  }
+}
+@media (min-width: 992px) {
+  .services {
+    padding-top: 12rem;
   }
 }

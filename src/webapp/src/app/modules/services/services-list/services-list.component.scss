@@ -6,6 +6,7 @@
   border-top: 2px solid #ededed;
   max-width: 800px;
   font-family: "Jost", sans-serif;
+
   .numberService {
     border-radius: 12px;
     background-color: #ececec;
@@ -33,8 +34,7 @@
 }
 .employee-offer {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
   gap: 3rem;
   padding-bottom: 2rem;
   margin-bottom: 2rem;
@@ -49,6 +49,7 @@
   }
   &__description {
     font-size: 1.6rem;
+    max-width: 600px;
   }
   &__info-box {
     display: flex;
@@ -69,5 +70,15 @@
     color: #9b9b9b;
     font-weight: 500;
     align-self: flex-end;
+  }
+}
+@media (min-width: 992px) {
+  .employee-offer {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    &__description {
+      max-width: 500px;
+    }
   }
 }
