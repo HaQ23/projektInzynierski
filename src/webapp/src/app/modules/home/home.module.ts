@@ -5,9 +5,10 @@ import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from './home.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { HomeRoutingModule } from './home-routing.modules';
+import { OurServicesComponent } from './our-services/our-services.component';
 
 @NgModule({
-  declarations: [HeaderComponent, HomeComponent, AboutUsComponent],
+  declarations: [HeaderComponent, HomeComponent, AboutUsComponent, OurServicesComponent],
   imports: [CommonModule, SharedModule, HomeRoutingModule],
   exports: [HomeComponent],
 })
