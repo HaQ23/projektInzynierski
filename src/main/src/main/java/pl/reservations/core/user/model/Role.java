@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -14,8 +15,9 @@ import javax.persistence.*;
 public class Role {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", updatable = false, nullable = false)
+    private UUID id;
 
     @Column(unique = true, nullable = false)
     private String name;
