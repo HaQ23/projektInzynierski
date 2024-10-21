@@ -6,6 +6,9 @@
       <div class="services__employee-items" *ngFor="let employee of employees">
         <app-services-list [employee]="employee"></app-services-list>
       </div>
+      <p *ngIf="employees.length === 0" class="services__info">
+        Brak ofert do wyświetlenia
+      </p>
     </div>
   </div>
 </section>
