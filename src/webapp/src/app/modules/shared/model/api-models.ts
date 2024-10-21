@@ -1,4 +1,4 @@
-export interface EmployeeOfferDto {
+export interface OfferDto {
   id: number;
   price: number;
   title: string;
@@ -10,5 +10,12 @@ export interface EmployeeDto {
   firstName: string;
   lastName: string;
   phoneNumber: number;
-  employeeOfferList: EmployeeOfferDto[];
+  employeeOfferList: OfferDto[];
+}
+export interface EmployeeScheduleDto {
+  id: number;
+  EmployeeId: number;
+  date: Date;
+  unabaliableFrom: string;
+  time: number;
 }

@@ -8,7 +8,12 @@ import { HomeRoutingModule } from './home-routing.modules';
 import { OurServicesComponent } from './our-services/our-services.component';
 
 @NgModule({
-  declarations: [HeaderComponent, HomeComponent, AboutUsComponent, OurServicesComponent],
+  declarations: [
+    HeaderComponent,
+    HomeComponent,
+    AboutUsComponent,
+    OurServicesComponent,
+  ],
   imports: [CommonModule, SharedModule, HomeRoutingModule],
   exports: [HomeComponent],
 })
