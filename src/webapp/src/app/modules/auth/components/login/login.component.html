@@ -1,0 +1,101 @@
+<main class="login">
+  <section class="login__container">
+    <div class="login__form-container">
+      <div class="login__image-wrapper">
+        <img
+          src="../../../../../assets/images/baber-image.webp"
+          alt=""
+          class="login__image"
+        />
+      </div>
+      <h2 class="login__title">
+        Witamy w <span class="other-color">QuickCut</span>
+      </h2>
+      <p class="login__text login__description">
+        Każdy dzień to nowa okazja, aby zadbać o siebie i poczuć się wyjątkowo.
+        Zapraszamy do umówienia wizyty i doświadczenia profesjonalnych usług
+        barberskich na najwyższym poziomie.
+      </p>
+      <form
+        class="login__form-content"
+        [formGroup]="loginForm"
+        (ngSubmit)="onSubmit()"
+      >
+        <div class="login__form-group">
+          <mat-form-field appearance="fill" class="login__form-field">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              formControlName="email"
+              type="email"
+              placeholder="Example@email.com"
+              class="login__form-input"
+              autocomplete="email"
+            />
+            <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+              Wymagany jest adres e-mail
+            </mat-error>
+            <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
+              Wprowadź prawidłowy adres e-mail
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="login__form-group">
+          <mat-form-field appearance="fill" class="login__form-field">
+            <mat-label>Hasło</mat-label>
+            <input
+              matInput
+              [type]="hide ? 'password' : 'text'"
+              formControlName="password"
+              placeholder="Wprowadź hasło"
+              class="login__form-input"
+              autocomplete="current-password"
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              type="button"
+              (click)="togglePasswordVisibility($event)"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
+            >
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+            <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+              Wymagane jest hasło
+            </mat-error>
+            <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">
+              Hasło musi składać się z co najmniej 8 znaków
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <a
+          routerLink="/auth/forgot-password"
+          class="login__link login__forgot-password"
+        >
+          Zapomniałeś hasła?
+        </a>
+
+        <button class="login__submit-btn" mat-raised-button color="primary">
+          Zaloguj się
+        </button>
+        <p class="login__text">
+          Nie masz jeszcze konta?
+          <a routerLink="/auth/register" class="login__link">
+            Zarejestruj się.
+          </a>
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <div class="login__img-wrapper">
+    <img
+      src="../../../../../assets/images/login-header.webp"
+      alt=""
+      class="login__img"
+    />
+  </div>
+</main>
