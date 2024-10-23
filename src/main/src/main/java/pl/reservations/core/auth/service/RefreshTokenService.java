@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import pl.reservations.core.auth.model.RefreshToken;
 import pl.reservations.core.auth.repository.RefreshTokenRepository;
 import pl.reservations.core.user.model.User;
+import pl.reservations.core.user.repository.UserRepository;
 
 import java.time.Instant;
 import java.util.Optional;
@@ -16,22 +17,22 @@ public class RefreshTokenService {
     @Autowired
     private RefreshTokenRepository refreshTokenRepository;
 
-    private final long refreshTokenDurationMs = 7 * 24 * 60 * 60 * 1000; // 7 dni
+    @Autowired
+    private UserRepository userRepository;
 
     public RefreshToken createOrGetRefreshToken(User user) {
-        Optional<RefreshToken> existingRefreshToken = refreshTokenRepository.findByUser(user);
-
-        if (existingRefreshToken.isPresent()) {
-            return existingRefreshToken.get();
+        Optional<RefreshToken> existingToken = refreshTokenRepository.findByUser(user);
+        if (existingToken.isPresent()) {
+            return existingToken.get();
         }
 
         RefreshToken refreshToken = new RefreshToken();
         refreshToken.setUser(user);
-        refreshToken.setExpiryDate(Instant.now().plusMillis(refreshTokenDurationMs));
         refreshToken.setToken(UUID.randomUUID().toString());
+        refreshToken.setExpiryDate(Instant.now().plusSeconds(60 * 60 * 24 * 7)); // 7 dni
+
         return refreshTokenRepository.save(refreshToken);
     }
-
 
     public Optional<RefreshToken> findByToken(String token) {
         return refreshTokenRepository.findByToken(token);
@@ -41,4 +42,7 @@ public class RefreshTokenService {
         return token.getExpiryDate().isAfter(Instant.now());
     }
 
+    public void deleteByUser(User user) {
+        refreshTokenRepository.deleteByUser(user);
+    }
 }

@@ -5,9 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da78d896-7b66-428b-afad-1102ee06c8b0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/auth/dto/ErrorResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/auth/dto/SuccessResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/auth/dto/UserResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/config/CorsConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spy.log" beforeDir="false" afterPath="$PROJECT_DIR$/spy.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/reservations/core/auth/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/auth/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/reservations/core/auth/service/RefreshTokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/auth/service/RefreshTokenService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/reservations/core/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/reservations/core/security/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/security/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/reservations/core/auth/controller/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/reservations/core/auth/controller/AuthController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/reservations/core/auth/service/RefreshTokenService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/reservations/core/auth/service/RefreshTokenService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/reservations/core/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/reservations/core/config/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/reservations/core/security/JwtAuthenticationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/reservations/core/security/JwtAuthenticationFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/auth/components/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/auth/components/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/auth/components/login/login.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/auth/components/login/login.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/auth/components/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/auth/components/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/core/components/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/core/components/navbar/navbar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/proxy.conf.json" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/proxy.conf.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +70,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "14-create-a-view-for-login-and-registration",
+    "git-widget-placeholder": "16-creating-a-module-responsible-for-logging-in-and-keeping-the-status-of…-user",
     "last_opened_file_path": "C:/Users/dobos/Desktop/Projekt Inżynierski/projektInzynierski/src/main",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",

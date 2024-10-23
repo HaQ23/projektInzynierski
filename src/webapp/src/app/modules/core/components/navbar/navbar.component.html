@@ -12,9 +12,14 @@
       <a routerLink="services" class="nav__link">Usługi</a>
       <a routerLink="" class="nav__link">Kontakt</a>
       <a routerLink="" class="nav__link">O nas</a>
-      <button mat-raised-button color="primary" class="nav__btn">
+      <a
+        routerLink="/auth/login"
+        mat-raised-button
+        color="primary"
+        class="nav__btn"
+      >
         Zaloguj się
-      </button>
+      </a>
     </div>
   </div>
 </nav>
@@ -53,13 +58,14 @@
     <a (click)="toggleOpenNavbar()" routerLink="" class="nav__link">Usługi</a>
     <a (click)="toggleOpenNavbar()" routerLink="" class="nav__link">Kontakt</a>
     <a (click)="toggleOpenNavbar()" routerLink="" class="nav__link">O nas</a>
-    <button
+    <a
+      routerLink="/auth/login"
       (click)="toggleOpenNavbar()"
       mat-raised-button
       color="primary"
       class="nav__btn"
     >
       Zaloguj się
-    </button>
+    </a>
   </div>
 </nav>
