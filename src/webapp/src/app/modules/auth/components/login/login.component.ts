@@ -37,7 +37,14 @@ export class LoginComponent {
           this.router.navigate(['/']);
         },
         error: (error) => {
-          this.errorMessage = error.message;
+          if (error.status === 401) {
+            this.errorMessage = 'Nieprawidłowe hasło.';
+          } else if (error.status === 404) {
+            this.errorMessage = 'Użytkownik o takiej nazwie nie istnieje.';
+          } else {
+            this.errorMessage =
+              'Nie udało się zalogować. Spróbuj ponownie później.';
+          }
         },
       });
     }

@@ -6,7 +6,8 @@ import {
   HttpRequest,
   HttpErrorResponse,
 } from '@angular/common/http';
-import { Observable, catchError, throwError, switchMap } from 'rxjs';
+import { Observable, throwError, switchMap, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { AuthService } from '../services/auth.service';
 
 @Injectable()
@@ -24,19 +25,20 @@ export class AuthInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
         if (error.status === 401 && this.authService.isAuthenticated()) {
+          if (error.error?.message === 'Refresh token is expired!') {
+            this.authService.logout().subscribe();
+            return throwError(
+              () => new Error('Unauthorized: Refresh token expired.')
+            );
+          }
           return this.authService.refreshToken().pipe(
             switchMap(() => next.handle(request)),
             catchError(() => {
-              this.authService.logout();
+              this.authService.logout().subscribe();
               return throwError(
                 () => new Error('Unauthorized: Token refresh failed.')
               );
             })
-          );
-        } else if (error.status === 401) {
-          this.authService.logout();
-          return throwError(
-            () => new Error('Unauthorized: User not logged in.')
           );
         } else {
           return throwError(() => error);

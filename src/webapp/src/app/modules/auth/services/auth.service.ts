@@ -26,76 +26,34 @@ export class AuthService {
       .pipe(
         tap((response) => {
           this.user$.next(response);
-        }),
-        catchError((error) => {
-          let errorMessage = 'Failed to log in. Please try again later.';
-          if (error.status === 401) {
-            errorMessage = 'Nieprawidłowe hasło.';
-          } else if (error.status === 404) {
-            errorMessage = 'Użytkownik o takiej nazwie nie istnieje.';
-          }
-          return throwError(() => new Error(errorMessage));
         })
       );
   }
 
   register(signUpRequest: SignupRequest): Observable<MessageResponse> {
-    return this.http
-      .post<MessageResponse>(`${this.baseUrl}/register`, signUpRequest)
-      .pipe(
-        catchError((error) => {
-          let errorMessage = 'Failed to register. Please try again later.';
-          if (error.status === 400) {
-            errorMessage = 'Bad request: Email or username already taken.';
-          }
-          return throwError(() => new Error(errorMessage));
-        })
-      );
+    return this.http.post<MessageResponse>(
+      `${this.baseUrl}/register`,
+      signUpRequest
+    );
   }
 
-  logout(): void {
-    this.http
-      .post<MessageResponse>(
-        `${this.baseUrl}/logout`,
-        {},
-        { withCredentials: true }
-      )
-      .subscribe({
-        next: () => {
-          this.user$.next(null);
-          this.router.navigate(['/auth/login']);
-        },
-      });
+  logout(): Observable<MessageResponse> {
+    return this.http.post<MessageResponse>(`${this.baseUrl}/logout`, {}).pipe(
+      tap(() => {
+        this.user$.next(null);
+        this.router.navigate(['/auth/login']);
+      })
+    );
   }
 
   refreshToken(): Observable<JwtResponse> {
-    return this.http
-      .post<JwtResponse>(
-        `${this.baseUrl}/refresh-token`,
-        {},
-        { withCredentials: true }
-      )
-      .pipe(
-        catchError((error) => {
-          let errorMessage = 'Failed to refresh token. Please try again later.';
-          if (error.status === 401) {
-            errorMessage = 'Unauthorized: Refresh token expired.';
-          }
-          return throwError(() => new Error(errorMessage));
-        })
-      );
+    return this.http.post<JwtResponse>(`${this.baseUrl}/refresh-token`, {});
   }
 
   autologin(): Observable<UserResponse | null> {
     return this.http.get<UserResponse>(`${this.baseUrl}/autologin`).pipe(
       tap((user) => {
         this.user$.next(user);
-      }),
-      catchError((error) => {
-        if (error.status === 401) {
-          console.log('Autologin failed: Użytkownik nie jest zalogowany.');
-        }
-        return of(null);
       })
     );
   }

@@ -12,14 +12,26 @@
       <a routerLink="services" class="nav__link">Usługi</a>
       <a routerLink="" class="nav__link">Kontakt</a>
       <a routerLink="" class="nav__link">O nas</a>
-      <a
-        routerLink="/auth/login"
-        mat-raised-button
-        color="primary"
-        class="nav__btn"
-      >
-        Zaloguj się
-      </a>
+      <ng-container *ngIf="!isAuthenticated(); else loggedIn">
+        <a
+          routerLink="/auth/login"
+          mat-raised-button
+          color="primary"
+          class="nav__btn"
+        >
+          Zaloguj się
+        </a>
+      </ng-container>
+      <ng-template #loggedIn>
+        <button
+          mat-raised-button
+          color="warn"
+          class="nav__btn"
+          (click)="logout()"
+        >
+          Wyloguj się
+        </button>
+      </ng-template>
     </div>
   </div>
 </nav>
@@ -52,20 +64,34 @@
     </button>
   </div>
   <div class="nav__links" [ngClass]="{ active: openNavbar }">
-    <a (click)="toggleOpenNavbar()" routerLink="" class="nav__link"
+    <a (click)="toggleOpenNavbar()" routerLink="/" class="nav__link"
       >Strona Główna</a
     >
-    <a (click)="toggleOpenNavbar()" routerLink="" class="nav__link">Usługi</a>
+    <a (click)="toggleOpenNavbar()" routerLink="services" class="nav__link"
+      >Usługi</a
+    >
     <a (click)="toggleOpenNavbar()" routerLink="" class="nav__link">Kontakt</a>
     <a (click)="toggleOpenNavbar()" routerLink="" class="nav__link">O nas</a>
-    <a
-      routerLink="/auth/login"
-      (click)="toggleOpenNavbar()"
-      mat-raised-button
-      color="primary"
-      class="nav__btn"
-    >
-      Zaloguj się
-    </a>
+    <ng-container *ngIf="!isAuthenticated(); else loggedInMobile">
+      <a
+        routerLink="/auth/login"
+        (click)="toggleOpenNavbar()"
+        mat-raised-button
+        color="primary"
+        class="nav__btn"
+      >
+        Zaloguj się
+      </a>
+    </ng-container>
+    <ng-template #loggedInMobile>
+      <button
+        mat-raised-button
+        color="warn"
+        class="nav__btn"
+        (click)="logout()"
+      >
+        Wyloguj się
+      </button>
+    </ng-template>
   </div>
 </nav>

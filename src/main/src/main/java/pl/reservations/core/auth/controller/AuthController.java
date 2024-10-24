@@ -250,7 +250,7 @@ public class AuthController {
     @GetMapping("/autologin")
     public ResponseEntity<?> autologin(@CookieValue(name = "refreshToken", required = false) String refreshToken) {
         if (refreshToken == null) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ErrorResponse("User not logged in."));
+            return ResponseEntity.ok().body(null);
         }
 
         return refreshTokenService.findByToken(refreshToken)

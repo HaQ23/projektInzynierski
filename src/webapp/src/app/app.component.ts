@@ -11,7 +11,6 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     if (!this.authService.isAuthenticated()) {
       this.authService.autologin().subscribe({
-        next: (user) => {},
         error: (error) => {
           console.error('Autologin failed:', error);
         },
