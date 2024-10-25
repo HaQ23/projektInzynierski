@@ -17,7 +17,7 @@ import {
 export class AuthService {
   private baseUrl = '/api/auth';
   private user$ = new BehaviorSubject<UserResponse | null>(null);
-
+  private readonly activationSessionKey = 'pendingActivationEmail';
   constructor(private http: HttpClient, private router: Router) {}
 
   login(loginRequest: LoginRequest): Observable<UserResponse> {
@@ -57,12 +57,35 @@ export class AuthService {
       })
     );
   }
-
+  resendActivationEmail(request: {
+    email: string;
+  }): Observable<MessageResponse> {
+    return this.http.post<MessageResponse>(
+      `${this.baseUrl}/resend-activation`,
+      request
+    );
+  }
+  activateAccount(token: string): Observable<MessageResponse> {
+    return this.http.get<MessageResponse>(`${this.baseUrl}/activate`, {
+      params: { token },
+    });
+  }
   getUser(): Observable<UserResponse | null> {
     return this.user$.asObservable();
   }
 
   isAuthenticated(): boolean {
     return !!this.user$.value;
+  }
+  storePendingActivationSession(email: string): void {
+    sessionStorage.setItem(this.activationSessionKey, email);
+  }
+
+  clearPendingActivationSession(): void {
+    sessionStorage.removeItem(this.activationSessionKey);
+  }
+
+  getPendingActivationEmail(): string | null {
+    return sessionStorage.getItem(this.activationSessionKey);
   }
 }

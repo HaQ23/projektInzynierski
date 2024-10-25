@@ -5,13 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da78d896-7b66-428b-afad-1102ee06c8b0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/auth/service/AuthService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spy.log" beforeDir="false" afterPath="$PROJECT_DIR$/spy.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/auth/interceptors/auth.interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/auth/interceptors/auth.interceptor.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/reservations/core/auth/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/auth/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/reservations/core/auth/controller/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/reservations/core/auth/controller/AuthController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/auth/auth-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/auth/auth-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/auth/auth.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/auth/auth.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/auth/components/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/auth/components/register/register.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/auth/components/register/register.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/auth/components/register/register.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/auth/components/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/auth/components/register/register.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/auth/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/auth/services/auth.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/core/components/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/core/components/navbar/navbar.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/core/components/navbar/navbar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/core/components/navbar/navbar.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/home/header/header.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/home/header/header.component.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

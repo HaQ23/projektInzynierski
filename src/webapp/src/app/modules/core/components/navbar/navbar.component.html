@@ -12,7 +12,7 @@
       <a routerLink="services" class="nav__link">Usługi</a>
       <a routerLink="" class="nav__link">Kontakt</a>
       <a routerLink="" class="nav__link">O nas</a>
-      <ng-container *ngIf="!isAuthenticated(); else loggedIn">
+      <ng-container *ngIf="!isUserAuthenticated; else loggedIn">
         <a
           routerLink="/auth/login"
           mat-raised-button
@@ -72,7 +72,7 @@
     >
     <a (click)="toggleOpenNavbar()" routerLink="" class="nav__link">Kontakt</a>
     <a (click)="toggleOpenNavbar()" routerLink="" class="nav__link">O nas</a>
-    <ng-container *ngIf="!isAuthenticated(); else loggedInMobile">
+    <ng-container *ngIf="!isUserAuthenticated; else loggedInMobile">
       <a
         routerLink="/auth/login"
         (click)="toggleOpenNavbar()"
