@@ -1,0 +1,17 @@
+<main class="activation">
+  <h2 class="activation__title">Aktywacja konta</h2>
+  <p class="activation__description">
+    Proszę sprawdzić swoją skrzynkę e-mail i kliknąć w link aktywacyjny, aby
+    aktywować swoje konto.
+  </p>
+  <button
+    class="activation__button"
+    (click)="resendActivationEmail()"
+    mat-raised-button
+    color="primary"
+  >
+    Wyślij ponownie e-mail aktywacyjny
+  </button>
+  <p *ngIf="message" class="message">{{ message }}</p>
+  <img src="../../../../../assets/images/mail-sent.png" alt="" class="image" />
+</main>

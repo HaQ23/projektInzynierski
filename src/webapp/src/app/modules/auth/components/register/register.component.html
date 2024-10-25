@@ -22,6 +22,9 @@
         Ciesz się najlepszymi usługami barberskimi, zarejestruj się już dziś,
         aby umówić wizytę online!
       </p>
+      <p *ngIf="errorMessage" class="register__error-message">
+        {{ errorMessage }}
+      </p>
       <form
         class="register__form-content"
         [formGroup]="registerForm"
@@ -97,6 +100,9 @@
             >
               Hasło musi składać się z co najmniej 8 znaków
             </mat-error>
+            <mat-error *ngIf="registerForm.hasError('mismatch')">
+              Hasła muszą być identyczne
+            </mat-error>
           </mat-form-field>
         </div>
 
@@ -128,7 +134,9 @@
             >
               Wymagane jest potwierdzenie hasła
             </mat-error>
-            <mat-error *ngIf="registerForm.hasError('mismatch')">
+            <mat-error
+              *ngIf="registerForm.get('confirmPassword')?.hasError('mismatch')"
+            >
               Hasła muszą być identyczne
             </mat-error>
           </mat-form-field>

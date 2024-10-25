@@ -1,20 +1,27 @@
-import { Component } from '@angular/core';
-import {
-  FormControl,
-  Validators,
-  FormsModule,
-  ReactiveFormsModule,
-} from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { AuthService } from './modules/auth/services/auth.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
+export class AppComponent implements OnInit {
+  constructor(
+    private authService: AuthService,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
+
+  ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      if (!this.authService.isAuthenticated()) {
+        this.authService.autologin().subscribe({
+          error: (error) => {
+            console.error('Autologin failed:', error);
+          },
+        });
+      }
+    }
+  }
 }

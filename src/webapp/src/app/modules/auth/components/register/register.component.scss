@@ -61,6 +61,13 @@
   &__img-wrapper {
     display: none;
   }
+  &__error-message {
+    padding: 10px;
+    background: #f44336;
+    font-size: 1.6rem;
+    color: #fff;
+    border-radius: 4px;
+  }
 }
 @media screen and (min-width: 992px) {
   .register {

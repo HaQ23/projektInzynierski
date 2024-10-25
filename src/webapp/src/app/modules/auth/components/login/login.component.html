@@ -16,6 +16,9 @@
         Zapraszamy do umówienia wizyty i doświadczenia profesjonalnych usług
         barberskich na najwyższym poziomie.
       </p>
+      <p *ngIf="errorMessage" class="login__error-message">
+        {{ errorMessage }}
+      </p>
       <form
         class="login__form-content"
         [formGroup]="loginForm"
@@ -23,20 +26,17 @@
       >
         <div class="login__form-group">
           <mat-form-field appearance="fill" class="login__form-field">
-            <mat-label>Email</mat-label>
+            <mat-label>Nazwa użytkownika</mat-label>
             <input
               matInput
-              formControlName="email"
-              type="email"
-              placeholder="Example@email.com"
+              formControlName="username"
+              type="text"
+              placeholder="Nazwa użytkownika"
               class="login__form-input"
-              autocomplete="email"
+              autocomplete="username"
             />
-            <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
-              Wymagany jest adres e-mail
-            </mat-error>
-            <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
-              Wprowadź prawidłowy adres e-mail
+            <mat-error *ngIf="loginForm.get('username')?.hasError('required')">
+              Wymagana jest nazwa użytkownika
             </mat-error>
           </mat-form-field>
         </div>
@@ -78,9 +78,15 @@
           Zapomniałeś hasła?
         </a>
 
-        <button class="login__submit-btn" mat-raised-button color="primary">
+        <button
+          type="submit"
+          class="login__submit-btn"
+          mat-raised-button
+          color="primary"
+        >
           Zaloguj się
         </button>
+
         <p class="login__text">
           Nie masz jeszcze konta?
           <a routerLink="/auth/register" class="login__link">
