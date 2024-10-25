@@ -1,0 +1,25 @@
+<div *ngIf="message" class="confirmation-container">
+  <p class="confirmation-text">{{ message }}</p>
+  <p class="redirect-text">
+    Za {{ redirectCountdown }} sekund zostaniesz przekierowany do strony
+    głównej.
+  </p>
+  <button (click)="onGoToHome()" class="redirect-button">
+    Przejdź do strony głównej
+  </button>
+  <img
+    src="../../../../../assets/images/undraw_Confirmed.png
+  "
+    alt="Confirmation image"
+    class="confirmation-image"
+  />
+</div>
+
+<div *ngIf="errorMessage" class="error-container">
+  <img
+    src="../../../../../assets/images/undraw_Warning.png"
+    alt="Warning image"
+    class="error-image"
+  />
+  <p class="error-text">{{ errorMessage }}</p>
+</div>

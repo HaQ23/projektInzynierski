@@ -1,0 +1,39 @@
+.confirmation-container,
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 40px;
+}
+
+.confirmation-image,
+.error-image {
+  max-width: 500px;
+  margin-bottom: 20px;
+}
+
+.confirmation-text,
+.error-text {
+  font-size: 1.6rem;
+  margin: 10px 0;
+}
+
+.redirect-text {
+  font-size: 1.6rem;
+  margin: 10px 0;
+}
+
+.redirect-button {
+  background-color: #b7a379;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.redirect-button:hover {
+  background-color: #9f8a63;
+}
