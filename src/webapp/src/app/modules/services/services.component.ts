@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { EmployeeDto } from '../shared/model/api-models';
-import { EmployeeService } from '../core/services/employee.service';
+import { EmployeeService } from './services/employee.service';
 import { Subscription } from 'rxjs';
 
 @Component({
