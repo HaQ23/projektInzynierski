@@ -10,11 +10,11 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="PropertiesComponent">
-    <option name="keyToString">
-      {"git-widget-placeholder": "main"}
-    </option>
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "main"
+  }
+}]]></component>
   <component name="TaskManager">
     <servers />
   </component>
