@@ -40,3 +40,4 @@ build/
 .idea/workspace.xml
 
 spy.log
+/src/main/spy.log
