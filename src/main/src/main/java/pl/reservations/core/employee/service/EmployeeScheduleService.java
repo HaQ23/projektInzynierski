@@ -23,9 +23,9 @@ public class EmployeeScheduleService {
     private static final LocalTime START_TIME = LocalTime.of(8, 0);
     private static final LocalTime END_TIME = LocalTime.of(16, 0);
 
-
     public void addEmployeeSchedule(EmployeeScheduleDto employeeScheduleDto) {
-        Employee employee = employeeRepository.findById(employeeScheduleDto.getEmployeeId()).orElse(null);
+        Employee employee = employeeRepository.findById(employeeScheduleDto.getEmployeeId())
+                .orElseThrow(() -> new IllegalArgumentException("Invalid employee ID"));
         EmployeeSchedule employeeSchedule = new EmployeeSchedule();
 
         employeeSchedule.setEmployee(employee);
@@ -35,20 +35,26 @@ public class EmployeeScheduleService {
         employeeScheduleRepository.save(employeeSchedule);
     }
 
-    public List<LocalTime> getAvailableTimeSlotsForDate(Long id,String date) {
-        List<LocalTime> allTimeSlots = generateAllTimeSlots();
+    public List<LocalTime> getAvailableTimeSlotsForDate(Long id, String date, int serviceDurationMinutes) {
+        List<LocalTime> allTimeSlots = generateAllTimeSlots(serviceDurationMinutes);
         List<LocalTime> bookedTimeSlots = getUnavailableTimeSlotsForDate(id, date);
-        removeBookedTimeSlots(allTimeSlots, bookedTimeSlots);
+        removeBookedTimeSlots(allTimeSlots, bookedTimeSlots, serviceDurationMinutes);
         return allTimeSlots;
     }
 
-    private List<LocalTime> generateAllTimeSlots() {
+    private List<LocalTime> generateAllTimeSlots(int serviceDurationMinutes) {
         List<LocalTime> allTimeSlots = new ArrayList<>();
         LocalTime currentTime = START_TIME;
+
         while (currentTime.isBefore(END_TIME)) {
+            LocalTime serviceEndTime = currentTime.plusMinutes(serviceDurationMinutes);
+            if (serviceEndTime.isAfter(END_TIME)) {
+                break;
+            }
             allTimeSlots.add(currentTime);
             currentTime = currentTime.plusMinutes(10);
         }
+
         return allTimeSlots;
     }
 
@@ -67,7 +73,23 @@ public class EmployeeScheduleService {
         return unavailableTimeSlots;
     }
 
-    private void removeBookedTimeSlots(List<LocalTime> allTimeSlots, List<LocalTime> bookedTimeSlots) {
+    private void removeBookedTimeSlots(List<LocalTime> allTimeSlots, List<LocalTime> bookedTimeSlots, int serviceDurationMinutes) {
         allTimeSlots.removeAll(bookedTimeSlots);
+
+
+        allTimeSlots.removeIf(slot -> {
+            LocalTime serviceEndTime = slot.plusMinutes(serviceDurationMinutes);
+            return serviceEndTime.isAfter(END_TIME) || isOverlappingWithBookedSlots(slot, serviceEndTime, bookedTimeSlots);
+        });
+    }
+
+    private boolean isOverlappingWithBookedSlots(LocalTime startTime, LocalTime endTime, List<LocalTime> bookedTimeSlots) {
+        for (LocalTime bookedSlot : bookedTimeSlots) {
+            LocalTime bookedEnd = bookedSlot.plusMinutes(10); // Zakładamy, że czas kroku to 10 minut
+            if (startTime.isBefore(bookedEnd) && endTime.isAfter(bookedSlot)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
