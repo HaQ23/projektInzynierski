@@ -1,0 +1,63 @@
+<div class="reservation-card">
+  <div class="reservation-card__content">
+    <span
+      class="reservation-card__status"
+      [ngClass]="{
+        'reservation-card__status--completed':
+          reservation.status === 'zakończona',
+        'reservation-card__status--cancelled':
+          reservation.status === 'anulowana',
+        'reservation-card__status--upcoming':
+          reservation.status === 'oczekujaca'
+      }"
+    >
+      {{ reservation.status }}
+    </span>
+    <h3 class="reservation-card__service-name">{{ reservation.offerName }}</h3>
+    <p class="reservation-card__price">Cena: {{ reservation.price }} zł</p>
+    <div class="reservation-card__employee-info">
+      <span class="reservation-card__employee-icon">
+        <mat-icon>person</mat-icon>
+      </span>
+      <span class="reservation-card__employee-name">
+        {{ reservation.employeeFirstName }} {{ reservation.employeeLastName }}
+      </span>
+    </div>
+    <ng-container
+      *ngIf="reservation.status === 'oczekujaca'; else rescheduleTemplate"
+    >
+      <button
+        mat-raised-button
+        color="warn"
+        class="reservation-card__btn reservation-card__btn--cancel"
+        (click)="cancelReservation()"
+      >
+        Anuluj rezerwację
+      </button>
+    </ng-container>
+    <ng-template #rescheduleTemplate>
+      <button
+        mat-raised-button
+        color="primary"
+        class="reservation-card__btn reservation-card__btn--reschedule"
+        (click)="rescheduleReservation()"
+      >
+        Umów ponownie
+      </button>
+    </ng-template>
+  </div>
+
+  <div class="reservation-card__details">
+    <div class="reservation-card__date">
+      <span class="reservation-card__date-day-name">
+        {{ reservation.reservationDate | date : "MMM" }}
+      </span>
+      <span class="reservation-card__date-day">{{
+        reservation.reservationDate | date : "dd"
+      }}</span>
+      <span class="reservation-card__date-time">{{
+        reservation.reservationTime
+      }}</span>
+    </div>
+  </div>
+</div>

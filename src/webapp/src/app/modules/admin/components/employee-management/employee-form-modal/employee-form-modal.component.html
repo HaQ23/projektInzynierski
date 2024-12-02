@@ -1,0 +1,34 @@
+<app-base-modal
+  [title]="employee ? 'Edytuj pracownika' : 'Dodaj nowego pracownika'"
+  size="md"
+  [showButtons]="true"
+>
+  <div class="employee-form-modal-content">
+    <mat-form-field appearance="outline" class="employee-form-field">
+      <mat-label>Imię</mat-label>
+      <input
+        matInput
+        [(ngModel)]="firstName"
+        placeholder="Podaj imię pracownika"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="employee-form-field">
+      <mat-label>Nazwisko</mat-label>
+      <input
+        matInput
+        [(ngModel)]="lastName"
+        placeholder="Podaj nazwisko pracownika"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="employee-form-field">
+      <mat-label>Numer telefonu</mat-label>
+      <input
+        matInput
+        [(ngModel)]="phoneNumber"
+        placeholder="Podaj numer telefonu pracownika"
+      />
+    </mat-form-field>
+  </div>
+</app-base-modal>

@@ -1,0 +1,10 @@
+<div class="employee-management">
+  <div class="employee-management__header">
+    <h2 class="employee-management__title">Zarządzanie pracownikami</h2>
+  </div>
+
+  <app-employee-list
+    [employees]="employees"
+    (employeeDeleted)="onEmployeeDeleted()"
+  ></app-employee-list>
+</div>

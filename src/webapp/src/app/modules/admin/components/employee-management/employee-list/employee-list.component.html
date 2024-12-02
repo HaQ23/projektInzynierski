@@ -1,0 +1,71 @@
+<div class="employee-list">
+  <div class="employee-list__controls">
+    <button
+      class="employee-list__btn"
+      mat-flat-button
+      color="primary"
+      (click)="addEmployee()"
+    >
+      Dodaj nowego pracownika
+    </button>
+    <mat-form-field class="employee-list__sort" appearance="outline">
+      <mat-label>Sortuj według</mat-label>
+      <mat-select
+        [(ngModel)]="selectedSort"
+        (selectionChange)="sortEmployees()"
+      >
+        <mat-option value="firstName">Imię</mat-option>
+        <mat-option value="lastName">Nazwisko</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="mat-elevation-z8 employee-list__table-container scrollable-table">
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef>Imię</th>
+        <td mat-cell *matCellDef="let employee">{{ employee.firstName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef>Nazwisko</th>
+        <td mat-cell *matCellDef="let employee">{{ employee.lastName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="phoneNumber">
+        <th mat-header-cell *matHeaderCellDef>Numer telefonu</th>
+        <td mat-cell *matCellDef="let employee">{{ employee.phoneNumber }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Akcje</th>
+        <td mat-cell *matCellDef="let employee">
+          <button mat-icon-button color="info" (click)="editEmployee(employee)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button
+            mat-icon-button
+            color="warn"
+            (click)="deleteEmployee(employee.id)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <div *ngIf="dataSource.data.length === 0" class="no-data-message">
+      Brak danych do wyświetlenia.
+    </div>
+
+    <mat-paginator
+      [length]="dataSource.data.length"
+      [pageSize]="5"
+      [pageSizeOptions]="[5, 10, 20]"
+      [showFirstLastButtons]="true"
+    ></mat-paginator>
+  </div>
+</div>

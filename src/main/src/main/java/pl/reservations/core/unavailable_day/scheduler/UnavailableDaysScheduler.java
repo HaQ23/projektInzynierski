@@ -14,7 +14,7 @@ public class UnavailableDaysScheduler {
         this.unavailableDaysService = unavailableDaysService;
     }
 
-    @Scheduled(cron = "0 0 0 * * ?")
+    @Scheduled(cron = "4 5 14 * * ?")
     public void scheduleUnavailableDaysUpdate() {
 
         unavailableDaysService.updateUnavailableDays();

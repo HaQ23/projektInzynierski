@@ -1,0 +1,47 @@
+<div class="admin-dashboard">
+  <div class="wrapper">
+    <div class="admin-dashboard__title-box">
+      <h2 class="admin-dashboard__title">PANEL ADMINISTRATORA</h2>
+      <h3 class="admin-dashboard__subTitle">Twój panel administracyjny</h3>
+    </div>
+    <main class="main-content">
+      <nav class="admin-sidebar">
+        <div class="admin-info">
+          <div class="admin-avatar">
+            <mat-icon color="primary">admin_panel_settings</mat-icon>
+          </div>
+          <span class="admin-name">Administrator</span>
+        </div>
+        <ul>
+          <li>
+            <a routerLink="user-management" routerLinkActive="active"
+              >Zarządzanie użytkownikami</a
+            >
+          </li>
+          <li>
+            <a routerLink="reservation-management" routerLinkActive="active"
+              >Zarządzanie rezerwacjami</a
+            >
+          </li>
+          <li>
+            <a routerLink="offer-management" routerLinkActive="active"
+              >Zarządzanie oferami</a
+            >
+          </li>
+          <li>
+            <a routerLink="employee-management" routerLinkActive="active"
+              >Zarządzanie pracownikami</a
+            >
+          </li>
+          <li>
+            <button (click)="logout()" class="nav__btn">Wyloguj się</button>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="admin-content">
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+  </div>
+</div>

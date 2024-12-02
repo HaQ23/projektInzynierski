@@ -1,1 +1,146 @@
-<p>services-reservation-modal works!</p>
+<app-base-modal
+  class="reservation-modal"
+  title="Rezerwacja usługi"
+  size="lg"
+  [showButtons]="false"
+>
+  <div class="reservation-modal__month-display">
+    {{ getMonthDisplay() }}
+  </div>
+
+  <div class="reservation-modal__carousel-container">
+    <button
+      class="chevron chevron__left"
+      mat-icon-button
+      (click)="scrollDates('left')"
+    >
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+    <div #dateCarousel class="reservation-modal__carousel-container__dates">
+      <button
+        class="reservation-modal__carousel-container__button"
+        *ngFor="let day of visibleDates"
+        [disabled]="!day.isAvailable"
+        (click)="selectDate(day.date)"
+        [class.reservation-modal__carousel-container__button--selected]="
+          selectedDate && selectedDate.getTime() === day.date.getTime()
+        "
+        [class.reservation-modal__carousel-container__button--unavailable]="
+          !day.isAvailable
+        "
+      >
+        <span class="day-name">{{ day.date | date : "EEE" : "pl" }}</span>
+        <span class="day-number">{{ day.date | date : "dd" : "pl" }}</span>
+      </button>
+    </div>
+    <button
+      class="chevron chevron__right"
+      mat-icon-button
+      (click)="scrollDates('right')"
+    >
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </div>
+
+  <div class="reservation-modal__time-period-selector">
+    <button
+      class="reservation-modal__time-period-selector__button"
+      (click)="scrollToTime('morning')"
+      [class.reservation-modal__time-period-selector__button--selected]="
+        selectedTimeRange === 'morning'
+      "
+      [disabled]="!isTimeRangeAvailable('morning')"
+    >
+      Rano
+    </button>
+    <button
+      class="reservation-modal__time-period-selector__button"
+      (click)="scrollToTime('afternoon')"
+      [class.reservation-modal__time-period-selector__button--selected]="
+        selectedTimeRange === 'afternoon'
+      "
+      [disabled]="!isTimeRangeAvailable('afternoon')"
+    >
+      Popołudnie
+    </button>
+    <button
+      class="reservation-modal__time-period-selector__button"
+      (click)="scrollToTime('evening')"
+      [class.reservation-modal__time-period-selector__button--selected]="
+        selectedTimeRange === 'evening'
+      "
+      [disabled]="!isTimeRangeAvailable('evening')"
+    >
+      Wieczór
+    </button>
+  </div>
+
+  <div
+    class="reservation-modal__carousel-container"
+    *ngIf="availableTimes.length > 0; else noTimes"
+  >
+    <button mat-icon-button (click)="scrollTimes('left')">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+    <div #timeCarousel class="reservation-modal__time-carousel">
+      <button
+        class="reservation-modal__time-carousel__button"
+        *ngFor="let time of visibleTimes"
+        (click)="selectTime(time)"
+        [class.reservation-modal__time-carousel__button--selected]="
+          selectedTime === time
+        "
+      >
+        {{ time }}
+      </button>
+    </div>
+    <button mat-icon-button (click)="scrollTimes('right')">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </div>
+
+  <ng-template #noTimes>
+    <p class="no-available-times-message">
+      {{ message }}
+    </p>
+  </ng-template>
+  <div class="reservation-modal__employee-details" *ngIf="employee">
+    <div class="reservation-modal__employee-details__header">
+      <div class="reservation-modal__employee-details__info">
+        <span class="reservation-modal__employee-details__title">
+          {{ selectedOffer?.title }}:
+        </span>
+        <p
+          *ngIf="selectedOffer?.description as description"
+          class="reservation-modal__employee-details__description"
+        >
+          {{
+            description.length > 50
+              ? description.substring(0, 50) + "..."
+              : description
+          }}
+        </p>
+      </div>
+      <div class="reservation-modal__employee-details__price-time">
+        <span class="reservation-modal__employee-details__price">
+          {{ selectedOffer?.price }} zł
+        </span>
+        <span class="reservation-modal__employee-details__time">
+          {{ selectedTime }} - {{ endTime }}
+        </span>
+      </div>
+    </div>
+    <div class="reservation-modal__employee-details__worker">
+      Pracownik: {{ employee.firstName }} {{ employee.lastName }}
+    </div>
+  </div>
+
+  <button
+    class="reservation-modal__confirm-button"
+    mat-raised-button
+    color="primary"
+    (click)="nextConfirm()"
+  >
+    Umów
+  </button>
+</app-base-modal>

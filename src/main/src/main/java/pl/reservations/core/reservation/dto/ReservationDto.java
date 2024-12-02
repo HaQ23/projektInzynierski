@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.UUID;
 
 @Data
@@ -14,9 +13,12 @@ import java.util.UUID;
 public class ReservationDto {
     private Long id;
     private LocalDate reservationDate;
-    private LocalTime reservationTime;
-    private Long employeeOfferId;
+    private String reservationTime;
+    private String employeeFirstName;
+    private String employeeLastName;
+    private String offerName;
+    private Float price;
     private UUID userId;
-    private int duration;
     private String status;
+    private Long employeeOfferId;
 }

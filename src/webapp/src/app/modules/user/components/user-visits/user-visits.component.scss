@@ -1,0 +1,26 @@
+.visits {
+  width: 100%;
+  font-family: "Jost", sans-serif;
+  &__title {
+    font-size: 2.4rem;
+    font-weight: bold;
+    font-family: "Jost", sans-serif;
+  }
+  &__subtitle {
+    display: flex;
+    align-items: center;
+    font-family: "Jost", sans-serif;
+    font-size: 1.8rem;
+  }
+  .icon-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .past-visits {
+    margin-top: 30px;
+  }
+  &__empty-message {
+    font-size: 1.6rem;
+  }
+}

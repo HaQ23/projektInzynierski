@@ -1,0 +1,57 @@
+<div class="visits">
+  <h2 class="visits__title">Wizyty</h2>
+
+  <div class="upcoming-visits">
+    <h3 (click)="toggleUpcomingVisits()" class="visits__subtitle">
+      Zaplanowane
+      <span class="icon-box">
+        <mat-icon class="icon" *ngIf="showUpcomingVisits"
+          >keyboard_arrow_down</mat-icon
+        >
+        <mat-icon class="icon" *ngIf="!showUpcomingVisits"
+          >keyboard_arrow_right</mat-icon
+        >
+      </span>
+    </h3>
+    <div *ngIf="showUpcomingVisits">
+      <ng-container
+        *ngIf="upcomingReservations.length > 0; else noUpcomingVisits"
+      >
+        <app-reservation-item
+          *ngFor="let reservation of upcomingReservations"
+          [reservation]="reservation"
+          (reservationCancelled)="onReservationCancelled()"
+        ></app-reservation-item>
+      </ng-container>
+      <ng-template #noUpcomingVisits>
+        <p class="visits__empty-message">Brak zaplanowanych wizyt</p>
+      </ng-template>
+    </div>
+  </div>
+
+  <div class="past-visits">
+    <h3 (click)="togglePastVisits()" class="visits__subtitle">
+      Zakończone
+      <span class="icon-box">
+        <mat-icon class="icon" *ngIf="showPastVisits"
+          >keyboard_arrow_down</mat-icon
+        >
+        <mat-icon class="icon" *ngIf="!showPastVisits"
+          >keyboard_arrow_right</mat-icon
+        >
+      </span>
+    </h3>
+    <div *ngIf="showPastVisits">
+      <ng-container *ngIf="pastReservations.length > 0; else noPastVisits">
+        <app-reservation-item
+          *ngFor="let reservation of pastReservations"
+          [reservation]="reservation"
+          (reservationCancelled)="onReservationCancelled()"
+        ></app-reservation-item>
+      </ng-container>
+      <ng-template #noPastVisits>
+        <p class="visits__empty-message">Brak zakończonych wizyt</p>
+      </ng-template>
+    </div>
+  </div>
+</div>

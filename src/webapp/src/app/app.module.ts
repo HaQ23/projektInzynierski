@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { APP_INITIALIZER, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { provideHttpClient, withFetch } from '@angular/common/http';
@@ -7,10 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthInterceptor } from './modules/auth/interceptors/auth.interceptor';
-import { BaseModalComponent } from './shared/base-modal/base-modal.component';
+
+import { registerLocaleData } from '@angular/common';
+import localePl from '@angular/common/locales/pl';
+
+registerLocaleData(localePl, 'pl');
 
 @NgModule({
-  declarations: [AppComponent, BaseModalComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -18,6 +22,7 @@ import { BaseModalComponent } from './shared/base-modal/base-modal.component';
     BrowserAnimationsModule,
   ],
   providers: [
+    { provide: LOCALE_ID, useValue: 'pl' },
     provideHttpClient(withFetch()),
     {
       provide: HTTP_INTERCEPTORS,

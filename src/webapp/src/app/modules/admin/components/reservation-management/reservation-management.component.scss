@@ -1,0 +1,53 @@
+mat-form-field {
+  flex: 1;
+  min-width: 200px;
+}
+.filter-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.inline-date-picker {
+  min-width: 200px;
+  margin-left: 16px;
+}
+
+.date-picker-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.date-button {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+}
+
+.date-button:hover {
+  background-color: #f0f0f0;
+}
+.snackbar-error {
+  background-color: #f44336;
+  font-weight: bold;
+  text-align: center;
+}
+.date-range {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+.reservation-management {
+  &__title {
+    font-family: "Jost", sans-serif;
+    font-size: 2.4rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+  }
+}

@@ -1,12 +1,12 @@
 <nav class="desktop-nav nav">
   <div class="wrapper">
-    <div class="nav__logo-box">
+    <a routerLink="" class="nav__logo-box">
       <img
         src="../../../../../assets/images/logo.png"
         alt="Logo firmy quickCut"
         class="nav__logo"
       />
-    </div>
+    </a>
     <div class="nav__links">
       <a routerLink="/" class="nav__link">Strona Główna</a>
       <a routerLink="services" class="nav__link">Usługi</a>
@@ -24,17 +24,19 @@
       </ng-container>
       <ng-template #loggedIn>
         <button
-          mat-raised-button
-          color="warn"
-          class="nav__btn"
-          (click)="logout()"
+          mat-icon-button
+          color="primary"
+          class="nav__btn nav__profile-btn"
+          [routerLink]="userRole === 'ADMIN' ? '/admin' : '/user'"
+          aria-label="Open user page"
         >
-          Wyloguj się
+          <mat-icon class="icon">person</mat-icon>
         </button>
       </ng-template>
     </div>
   </div>
 </nav>
+
 <nav class="mobile-nav nav">
   <div class="box">
     <div class="nav__logo-box">
@@ -46,7 +48,7 @@
     </div>
     <button
       *ngIf="!openNavbar"
-      class="ham_btn"
+      class="ham__btn"
       mat-icon-button
       aria-label="Example icon button with a menu icon"
       (click)="toggleOpenNavbar()"
@@ -55,7 +57,7 @@
     </button>
     <button
       *ngIf="openNavbar"
-      class="ham_btn"
+      class="ham__btn"
       mat-icon-button
       aria-label="Example icon button with a menu icon"
       (click)="toggleOpenNavbar()"
@@ -64,12 +66,12 @@
     </button>
   </div>
   <div class="nav__links" [ngClass]="{ active: openNavbar }">
-    <a (click)="toggleOpenNavbar()" routerLink="/" class="nav__link"
-      >Strona Główna</a
-    >
-    <a (click)="toggleOpenNavbar()" routerLink="services" class="nav__link"
-      >Usługi</a
-    >
+    <a (click)="toggleOpenNavbar()" routerLink="/" class="nav__link">
+      Strona Główna
+    </a>
+    <a (click)="toggleOpenNavbar()" routerLink="services" class="nav__link">
+      Usługi
+    </a>
     <a (click)="toggleOpenNavbar()" routerLink="" class="nav__link">Kontakt</a>
     <a (click)="toggleOpenNavbar()" routerLink="" class="nav__link">O nas</a>
     <ng-container *ngIf="!isUserAuthenticated; else loggedInMobile">
@@ -85,12 +87,14 @@
     </ng-container>
     <ng-template #loggedInMobile>
       <button
-        mat-raised-button
-        color="warn"
-        class="nav__btn"
-        (click)="logout()"
+        mat-icon-button
+        color="primary"
+        class="nav__btn nav__profile-btn"
+        [routerLink]="userRole === 'ADMIN' ? '/admin' : '/user'"
+        aria-label="Open user page"
+        (click)="toggleOpenNavbar()"
       >
-        Wyloguj się
+        <mat-icon class="icon">person</mat-icon>
       </button>
     </ng-template>
   </div>

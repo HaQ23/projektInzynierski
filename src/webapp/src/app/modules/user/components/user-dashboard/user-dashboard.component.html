@@ -1,0 +1,42 @@
+<div class="user-dashboard">
+  <div class="wrapper">
+    <div class="user-dashboard__title-box">
+      <h2 class="user-dashboard__title">PROFIL</h2>
+      <h3 class="user-dashboard__subTitle">Twój profil</h3>
+    </div>
+    <main class="main-content">
+      <nav class="user-sidebar">
+        <div class="user-info">
+          <div class="user-avatar">
+            <mat-icon color="primary" class="">person</mat-icon>
+          </div>
+
+          <span class="user-name">{{ username }}</span>
+        </div>
+        <ul>
+          <li>
+            <a routerLink="visits" routerLinkActive="active">Wizyty</a>
+          </li>
+
+          <li>
+            <a routerLink="settings" routerLinkActive="active"
+              >Ustawienia konta</a
+            >
+          </li>
+          <li>
+            <a routerLink="terms-and-conditions" routerLinkActive="active"
+              >Regulamin</a
+            >
+          </li>
+          <li>
+            <button (click)="logout()" class="nav__btn">Wyloguj się</button>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="user-content">
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+  </div>
+</div>

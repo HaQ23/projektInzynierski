@@ -6,7 +6,6 @@ import pl.reservations.core.employee.model.EmployeeOffer;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.UUID;
 
 @Getter
@@ -23,7 +22,7 @@ public class Reservation {
     private LocalDate reservationDate;
 
     @Column(name = "reservation_time", nullable = false)
-    private LocalTime reservationTime;
+    private String reservationTime;
 
     @Column(name = "user_id", nullable = false)
     private UUID userId;

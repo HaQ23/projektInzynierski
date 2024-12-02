@@ -11,6 +11,7 @@ import { PLATFORM_ID, Inject } from '@angular/core';
 export class NavbarComponent implements OnInit {
   openNavbar = false;
   isUserAuthenticated: boolean = false;
+  userRole: string | null = null;
 
   constructor(
     private authService: AuthService,
@@ -20,19 +21,18 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       this.authService.getUser().subscribe((user) => {
-        this.isUserAuthenticated = !!user;
+        if (user) {
+          this.isUserAuthenticated = true;
+          this.userRole = user.role;
+        } else {
+          this.isUserAuthenticated = false;
+          this.userRole = null;
+        }
       });
     }
   }
 
   toggleOpenNavbar() {
     this.openNavbar = !this.openNavbar;
-  }
-
-  logout() {
-    this.authService.logout().subscribe(() => {
-      this.isUserAuthenticated = false;
-      this.toggleOpenNavbar();
-    });
   }
 }

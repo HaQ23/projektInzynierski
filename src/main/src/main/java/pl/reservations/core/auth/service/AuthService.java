@@ -148,7 +148,7 @@ public class AuthService {
 
                     return ResponseEntity.ok()
                             .header(HttpHeaders.SET_COOKIE, jwtCookie.toString())
-                            .body(new pl.reservations.core.auth.dto.UserResponse(user.getUsername(), user.getEmail(), user.getFirstname(), user.getLastname()));
+                            .body(new pl.reservations.core.auth.dto.UserResponse(user.getUsername(), user.getEmail(), user.getFirstname(), user.getLastname(),user.getRole().getName()));
                 })
                 .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorResponse("Refresh token not found!")));
     }
@@ -176,7 +176,7 @@ public class AuthService {
 
                     return ResponseEntity.ok()
                             .header(HttpHeaders.SET_COOKIE, jwtCookie.toString())
-                            .body(new pl.reservations.core.auth.dto.UserResponse(user.getUsername(), user.getEmail(), user.getFirstname(), user.getLastname()));
+                            .body(new pl.reservations.core.auth.dto.UserResponse(user.getUsername(), user.getEmail(), user.getFirstname(), user.getLastname(),user.getRole().getName()));
                 })
                 .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorResponse("Refresh token not found!")));
     }

@@ -23,10 +23,12 @@ export interface JwtResponse {
 export interface MessageResponse {
   message: string;
 }
+
 export interface UserResponse {
   username: string;
   email: string;
   firstname: string;
   lastname: string;
-  message?: string;
+  role: string;
 }
+export interface User extends UserResponse {}

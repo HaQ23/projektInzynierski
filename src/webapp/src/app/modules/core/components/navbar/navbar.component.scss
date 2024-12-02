@@ -35,6 +35,13 @@
   &__link:hover::after {
     transform: scale(1);
   }
+  .nav__profile-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    background-color: rgba(183, 163, 121, 0.2);
+  }
 }
 .desktop-nav.nav {
   display: none;

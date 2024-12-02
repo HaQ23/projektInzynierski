@@ -1,0 +1,93 @@
+.reservation-card {
+  display: flex;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  border: 1px solid #e0e0e0;
+  font-family: "Jost", sans-serif;
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 15px 30px 15px 15px;
+    border-right: 1px solid #e0e0e0;
+  }
+  &__status {
+    padding: 4px 8px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    font-weight: 500;
+    color: #000;
+    align-self: flex-start;
+    &--completed {
+      background-color: #f4f4f4;
+    }
+    &--cancelled {
+      background-color: #f4f4f4;
+    }
+    &--upcoming {
+      background-color: #f0e6d2;
+      color: #b7a379;
+    }
+  }
+  &__service-name {
+    font-family: "Jost", sans-serif;
+    font-weight: 500;
+    font-size: 1.8rem;
+    margin: 0;
+  }
+  &__price {
+    margin: 5px 0 0;
+  }
+  &__employee-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 10px 0 15px;
+  }
+  &__details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
+  }
+  &__date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__date-day {
+    margin: 10px 0;
+    font-size: 3rem;
+    font-weight: 500;
+  }
+  &__date-day-name {
+    font-size: 1.4rem;
+    font-weight: 500;
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+  &__date-time {
+    font-size: 1.4rem;
+  }
+}
+@media (min-width: 768px) {
+  .reservation-card {
+    &__content {
+      padding: 15px 50px 15px 15px;
+    }
+
+    &__details {
+      padding: 15px 50px;
+    }
+  }
+}
+@media (min-width: 996px) {
+  .reservation-card {
+    max-width: 600px;
+  }
+}

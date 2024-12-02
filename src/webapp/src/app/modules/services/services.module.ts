@@ -7,7 +7,11 @@ import { SharedModule } from '../shared/shared.module';
 import { ServicesReservationModalComponent } from './services-reservation-modal/services-reservation-modal.component';
 
 @NgModule({
-  declarations: [ServicesComponent, ServicesListComponent, ServicesReservationModalComponent],
+  declarations: [
+    ServicesComponent,
+    ServicesListComponent,
+    ServicesReservationModalComponent,
+  ],
   imports: [CommonModule, ServicesRoutingModule, SharedModule],
 })
 export class ServicesModule {}

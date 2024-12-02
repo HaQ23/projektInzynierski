@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { MaterialModule } from './material/material.module';
-import { BaseModalComponent } from './componentns/base-modal/base-modal.component';
+
+import { CommonModule } from '@angular/common';
+import { BaseModalComponent } from './components/base-modal/base-modal.component';
+import { InfoModalComponent } from './components/info-modal/info-modal.component';
+import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.component';
 
 @NgModule({
-  declarations: [
-    BaseModalComponent
-  ],
-  imports: [MaterialModule],
-  exports: [MaterialModule],
+  declarations: [BaseModalComponent, InfoModalComponent, ConfirmModalComponent],
+  imports: [MaterialModule, CommonModule],
+  exports: [MaterialModule, BaseModalComponent],
 })
 export class SharedModule {}

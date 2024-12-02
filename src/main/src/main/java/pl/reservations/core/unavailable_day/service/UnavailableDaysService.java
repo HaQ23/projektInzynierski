@@ -36,11 +36,10 @@ public class UnavailableDaysService {
 
     public void updateUnavailableDays() {
         LocalDate today = LocalDate.now();
-        LocalDate nextMonth = today.plusMonths(1);
-
+        LocalDate nextMonth = today.plusMonths(2);
 
         for (LocalDate date = today; date.isBefore(nextMonth); date = date.plusDays(1)) {
-            if (date.getDayOfWeek() == DayOfWeek.SUNDAY) {
+            if (date.getDayOfWeek().equals(DayOfWeek.SUNDAY)) {
                 if (!unavailableDaysRepository.existsByDate(date)) {
                     UnavailableDay sunday = new UnavailableDay();
                     sunday.setDate(date);
@@ -53,6 +52,10 @@ public class UnavailableDaysService {
 
         // Usuń przeszłe dni
         unavailableDaysRepository.deleteByDateBefore(today);
+    }
+
+    public boolean isDateUnavailable(LocalDate date) {
+        return unavailableDaysRepository.existsByDate(date);
     }
 
     private UnavailableDayDto toDto(UnavailableDay unavailableDay) {
