@@ -43,7 +43,7 @@ export class EditEmployeeOfferModalComponent
 
   override nextConfirm(): void {
     if (this.offerForm.invalid) {
-      return; // Jeśli formularz jest nieprawidłowy, zakończ operację
+      return;
     }
     const formValue = this.offerForm.getRawValue();
     if (this.offer) {

@@ -92,17 +92,19 @@ export class EmployeeOfferManagementComponent implements OnInit {
 
   sortOffers(): void {
     if (this.selectedSort) {
-      this.filteredEmployeeOffers.sort((a, b) => {
-        const key = this.selectedSort as keyof EmployeeOfferDetailsDto;
+      this.filteredEmployeeOffers = [...this.filteredEmployeeOffers].sort(
+        (a, b) => {
+          const key = this.selectedSort as keyof EmployeeOfferDetailsDto;
 
-        if (typeof a[key] === 'number' && typeof b[key] === 'number') {
-          return (a[key] as number) - (b[key] as number);
-        } else if (typeof a[key] === 'string' && typeof b[key] === 'string') {
-          return (a[key] as string).localeCompare(b[key] as string);
-        } else {
-          return 0;
+          if (typeof a[key] === 'number' && typeof b[key] === 'number') {
+            return (a[key] as number) - (b[key] as number);
+          } else if (typeof a[key] === 'string' && typeof b[key] === 'string') {
+            return (a[key] as string).localeCompare(b[key] as string);
+          } else {
+            return 0;
+          }
         }
-      });
+      );
     }
   }
 
