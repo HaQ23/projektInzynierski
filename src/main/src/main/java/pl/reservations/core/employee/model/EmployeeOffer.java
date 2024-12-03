@@ -1,5 +1,6 @@
 package pl.reservations.core.employee.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 import pl.reservations.core.offer.model.Offer;
@@ -19,11 +20,14 @@ public class EmployeeOffer {
 
     @ManyToOne
     @JoinColumn(name = "employee_id")
+    @JsonBackReference
     private Employee employee;
 
     @ManyToOne
     @JoinColumn(name = "offer_id")
+    @JsonBackReference
     private Offer offer;
+
 
     @Column(name = "price")
     private Float price;

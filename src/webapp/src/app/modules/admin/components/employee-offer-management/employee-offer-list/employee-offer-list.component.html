@@ -1,0 +1,51 @@
+<div class="employee-offer-table scrollable-table">
+  <table mat-table [dataSource]="offers">
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef>Tytuł usługi</th>
+      <td mat-cell *matCellDef="let offer">{{ offer.title }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef>Cena</th>
+      <td mat-cell *matCellDef="let offer">
+        {{ offer.price | currency : "PLN" : "symbol" : "1.2-2" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="time">
+      <th mat-header-cell *matHeaderCellDef>Czas trwania</th>
+      <td mat-cell *matCellDef="let offer">{{ offer.time }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Akcje</th>
+      <td mat-cell *matCellDef="let offer">
+        <button mat-icon-button color="info" (click)="editOffer(offer)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="deleteOffer(offer.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr
+      mat-header-row
+      *matHeaderRowDef="['title', 'price', 'time', 'actions']"
+    ></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: ['title', 'price', 'time', 'actions']"
+    ></tr>
+  </table>
+
+  <div *ngIf="offers.length === 0" class="no-data-message">
+    Brak ofert do wyświetlenia.
+  </div>
+  <mat-paginator
+    [length]="offers.length"
+    [pageSize]="5"
+    [pageSizeOptions]="[5, 10, 20]"
+    [showFirstLastButtons]="true"
+  ></mat-paginator>
+</div>

@@ -121,3 +121,24 @@ export interface EmployeeDetailsRequest {
 export interface EmployeeDetailsDto extends EmployeeDetailsRequest {
   id: number;
 }
+export interface EmployeeOfferRequest {
+  employeeId: number;
+  offerId: number;
+  price: number;
+  time: string;
+}
+
+export interface EmployeeOfferDetailsDto {
+  id: number;
+  employeeId: number;
+  offerId: number;
+  title: string;
+  description: string;
+  price: number;
+  time: string;
+  serviceName: string;
+}
+
+export interface EmployeeOfferDto extends EmployeeOfferRequest {
+  id: number;
+}
