@@ -4,18 +4,125 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4196dc3f-dff0-49b0-b157-090588738263" name="Changes" comment="" />
+    <list default="true" id="e96e8d8c-43af-4eb3-9315-9c4218582a7c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/employee/dto/EmployeeDetailsDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/reservation/assembler/ReservationDetailsAssembler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/reservation/dto/ReservationDetailsDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/reservation/scheduler/ReservationScheduler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/user/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/user/controller/UserManagementController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/user/dto/ChangePasswordRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/user/dto/MessageResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/user/dto/UpdateUserRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/user/dto/UserDetailsDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/user/dto/UserResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/user/service/UserManagementService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/user/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/reservations/core/auth/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/auth/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/reservations/core/auth/dto/UserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/auth/dto/UserResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/reservations/core/auth/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/auth/service/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/reservations/core/employee/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/employee/controller/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/reservations/core/employee/controller/EmployeeScheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/employee/controller/EmployeeScheduleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/reservations/core/employee/dto/EmployeeScheduleDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/employee/dto/EmployeeScheduleDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/reservations/core/employee/dto/EmployeeScheduleRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/employee/dto/EmployeeScheduleRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/reservations/core/employee/model/EmployeeSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/employee/model/EmployeeSchedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/reservations/core/employee/repository/EmployeeScheduleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/employee/repository/EmployeeScheduleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/reservations/core/employee/service/EmployeeScheduleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/employee/service/EmployeeScheduleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/reservations/core/employee/service/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/employee/service/EmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/reservations/core/offer/controller/OfferController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/offer/controller/OfferController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/reservations/core/offer/service/OfferService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/offer/service/OfferService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/reservations/core/reservation/assembler/ReservationAssembler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/reservation/assembler/ReservationAssembler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/reservations/core/reservation/controller/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/reservation/controller/ReservationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/reservations/core/reservation/dto/ReservationDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/reservation/dto/ReservationDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/reservations/core/reservation/model/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/reservation/model/Reservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/reservations/core/reservation/repository/ReservationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/reservation/repository/ReservationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/reservations/core/reservation/service/ReservationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/reservation/service/ReservationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/reservations/core/unavailable_day/scheduler/UnavailableDaysScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/unavailable_day/scheduler/UnavailableDaysScheduler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/reservations/core/unavailable_day/service/UnavailableDaysService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/unavailable_day/service/UnavailableDaysService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/reservations/core/user/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/reservations/core/user/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1.001__initialize.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1.001__initialize.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1.005__add_unavailable_days_and_reservation_tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1.005__add_unavailable_days_and_reservation_tables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/db/migration/V1.001__initialize.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/db/migration/V1.001__initialize.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/reservations/core/auth/controller/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/reservations/core/auth/controller/AuthController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/reservations/core/employee/controller/EmployeeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/reservations/core/employee/controller/EmployeeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/reservations/core/employee/controller/EmployeeScheduleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/reservations/core/employee/controller/EmployeeScheduleController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/reservations/core/employee/dto/EmployeeScheduleDto$EmployeeScheduleDtoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/reservations/core/employee/dto/EmployeeScheduleDto$EmployeeScheduleDtoBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/reservations/core/employee/dto/EmployeeScheduleDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/reservations/core/employee/dto/EmployeeScheduleDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/reservations/core/employee/model/EmployeeSchedule.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/reservations/core/employee/model/EmployeeSchedule.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/reservations/core/employee/repository/EmployeeScheduleRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/reservations/core/employee/repository/EmployeeScheduleRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/reservations/core/employee/service/EmployeeScheduleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/reservations/core/employee/service/EmployeeScheduleService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/reservations/core/employee/service/EmployeeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/reservations/core/employee/service/EmployeeService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/reservations/core/offer/controller/OfferController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/reservations/core/offer/controller/OfferController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/reservations/core/offer/service/OfferService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/reservations/core/offer/service/OfferService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/reservations/core/user/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/reservations/core/user/repository/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/app.module.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/app.module.server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/auth/models/models.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/auth/models/models.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/auth/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/auth/services/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/core/components/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/core/components/navbar/navbar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/core/components/navbar/navbar.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/core/components/navbar/navbar.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/core/components/navbar/navbar.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/core/components/navbar/navbar.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/core/components/navbar/navbar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/core/components/navbar/navbar.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/main/main-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/main/main-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/services/services-list/services-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/services/services-list/services-list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/services/services-list/services-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/services/services-list/services-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/services/services-reservation-modal/services-reservation-modal.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/services/services-reservation-modal/services-reservation-modal.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/services/services-reservation-modal/services-reservation-modal.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/services/services-reservation-modal/services-reservation-modal.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/services/services-reservation-modal/services-reservation-modal.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/services/services-reservation-modal/services-reservation-modal.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/services/services.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/services/services.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/services/services.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/services/services.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/services/services/employee.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/services/services/employee.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/shared/components/base-modal/base-modal.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/shared/components/base-modal/base-modal.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/shared/components/base-modal/base-modal.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/shared/components/base-modal/base-modal.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/shared/components/base-modal/base-modal.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/shared/components/base-modal/base-modal.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/shared/material/material.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/shared/material/material.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/shared/model/api-models.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/shared/model/api-models.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/app/modules/shared/shared.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/app/modules/shared/shared.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp/src/proxy.conf.json" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp/src/proxy.conf.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "git-widget-placeholder": "main"
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2oDAvfWH6C1klTnX0nqFmU3yQMH" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;19-creation-of-a-modal-to-book-a-service-on-a-given-date&quot;
   }
-}]]></component>
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e96e8d8c-43af-4eb3-9315-9c4218582a7c" name="Changes" comment="" />
+      <created>1730394008178</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1730394008178</updated>
+    </task>
     <servers />
   </component>
 </project>

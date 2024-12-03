@@ -7,11 +7,14 @@ import pl.reservations.core.employee.model.EmployeeSchedule;
 import pl.reservations.core.employee.dto.EmployeeScheduleDto;
 import pl.reservations.core.employee.repository.EmployeeRepository;
 import pl.reservations.core.employee.repository.EmployeeScheduleRepository;
+import pl.reservations.core.unavailable_day.service.UnavailableDaysService;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -20,6 +23,7 @@ public class EmployeeScheduleService {
 
     private final EmployeeScheduleRepository employeeScheduleRepository;
     private final EmployeeRepository employeeRepository;
+    private final UnavailableDaysService unavailableDaysService;
     private static final LocalTime START_TIME = LocalTime.of(8, 0);
     private static final LocalTime END_TIME = LocalTime.of(16, 0);
 
@@ -35,11 +39,43 @@ public class EmployeeScheduleService {
         employeeScheduleRepository.save(employeeSchedule);
     }
 
-    public List<LocalTime> getAvailableTimeSlotsForDate(Long id, String date, int serviceDurationMinutes) {
+    public List<String> getAvailableTimeSlotsForDate(Long id, LocalDate date, int serviceDurationMinutes) {
+        if (unavailableDaysService.isDateUnavailable(date)) {
+            return new ArrayList<>();
+        }
+
         List<LocalTime> allTimeSlots = generateAllTimeSlots(serviceDurationMinutes);
         List<LocalTime> bookedTimeSlots = getUnavailableTimeSlotsForDate(id, date);
+
+
         removeBookedTimeSlots(allTimeSlots, bookedTimeSlots, serviceDurationMinutes);
-        return allTimeSlots;
+
+
+        if (date.equals(LocalDate.now())) {
+            LocalTime now = LocalTime.now();
+            LocalTime maxTime = now.plusMinutes(30);
+            allTimeSlots = allTimeSlots.stream()
+                    .filter(time -> time.isAfter(now) && time.isBefore(maxTime))
+                    .collect(Collectors.toList());
+        }
+
+        return allTimeSlots.stream().map(LocalTime::toString).collect(Collectors.toList());
+    }
+
+    public List<LocalDate> getAvailableDaysForNextTwoMonths(Long employeeId) {
+        LocalDate startDate = LocalDate.now();
+        LocalDate endDate = startDate.plusMonths(2);
+
+        List<LocalDate> availableDays = new ArrayList<>();
+        for (LocalDate date = startDate; !date.isAfter(endDate); date = date.plusDays(1)) {
+            boolean isUnavailable = unavailableDaysService.isDateUnavailable(date) ||
+                    !employeeScheduleRepository.findByDateAndEmployeeId(date, employeeId).isEmpty();
+
+            if (!isUnavailable) {
+                availableDays.add(date);
+            }
+        }
+        return availableDays;
     }
 
     private List<LocalTime> generateAllTimeSlots(int serviceDurationMinutes) {
@@ -58,7 +94,7 @@ public class EmployeeScheduleService {
         return allTimeSlots;
     }
 
-    private List<LocalTime> getUnavailableTimeSlotsForDate(Long employeeId, String date) {
+    private List<LocalTime> getUnavailableTimeSlotsForDate(Long employeeId, LocalDate date) {
         List<LocalTime> unavailableTimeSlots = new ArrayList<>();
         List<EmployeeSchedule> schedules = this.employeeScheduleRepository.findByDateAndEmployeeId(date, employeeId);
         for (EmployeeSchedule schedule : schedules) {
@@ -75,7 +111,6 @@ public class EmployeeScheduleService {
 
     private void removeBookedTimeSlots(List<LocalTime> allTimeSlots, List<LocalTime> bookedTimeSlots, int serviceDurationMinutes) {
         allTimeSlots.removeAll(bookedTimeSlots);
-
 
         allTimeSlots.removeIf(slot -> {
             LocalTime serviceEndTime = slot.plusMinutes(serviceDurationMinutes);

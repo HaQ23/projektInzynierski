@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS employee (
 CREATE TABLE IF NOT EXISTS employee_schedule (
     id BIGSERIAL PRIMARY KEY,
     employee_id BIGINT,
-    date VARCHAR,
+    date DATE,
     unavailable_from varchar(32),
     time INTEGER,
     CONSTRAINT fk_employee_id FOREIGN KEY (employee_id) REFERENCES employee(id)
@@ -21,12 +21,11 @@ CREATE TABLE IF NOT EXISTS offer (
 );
 
 CREATE TABLE IF NOT EXISTS employee_offer (
-
     id BIGSERIAL PRIMARY KEY,
     employee_id BIGINT,
     offer_id BIGINT,
     price FLOAT NOT NULL,
-    time varchar(32) NOT NULL,
+    time  varchar(32)  NOT NULL,
     CONSTRAINT fk_offer_id FOREIGN KEY (offer_id) REFERENCES offer(id),
     CONSTRAINT fk_2_employee_id FOREIGN KEY (employee_id) REFERENCES employee(id)
 );

@@ -8,10 +8,9 @@ CREATE TABLE IF NOT EXISTS unavailable_days (
 CREATE TABLE IF NOT EXISTS reservation (
     id BIGSERIAL PRIMARY KEY,
     reservation_date DATE NOT NULL,
-    reservation_time TIME NOT NULL,
+    reservation_time VARCHAR(32) NOT NULL,
     employee_offer_id BIGINT,
     user_id UUID NOT NULL,
-    duration INTEGER NOT NULL,
     status VARCHAR(32) NOT NULL DEFAULT 'pending',
     CONSTRAINT fk_employee_offer_id FOREIGN KEY (employee_offer_id) REFERENCES employee_offer(id)
 );

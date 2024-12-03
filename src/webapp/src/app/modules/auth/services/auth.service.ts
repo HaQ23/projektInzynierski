@@ -9,6 +9,7 @@ import {
   JwtResponse,
   MessageResponse,
   UserResponse,
+  User,
 } from '../models/models';
 
 @Injectable({
@@ -16,7 +17,7 @@ import {
 })
 export class AuthService {
   private baseUrl = '/api/auth';
-  private user$ = new BehaviorSubject<UserResponse | null>(null);
+  private user$ = new BehaviorSubject<User | null>(null);
   private readonly activationSessionKey = 'pendingActivationEmail';
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -53,6 +54,7 @@ export class AuthService {
   autologin(): Observable<UserResponse | null> {
     return this.http.get<UserResponse>(`${this.baseUrl}/autologin`).pipe(
       tap((user) => {
+        console.log(user);
         this.user$.next(user);
       })
     );
@@ -87,5 +89,9 @@ export class AuthService {
 
   getPendingActivationEmail(): string | null {
     return sessionStorage.getItem(this.activationSessionKey);
+  }
+  updateUser(updatedUser: UserResponse): void {
+    this.user$.next(updatedUser);
+    console.log(this.user$.value);
   }
 }

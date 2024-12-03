@@ -1,0 +1,11 @@
+<div class="user-management">
+  <div class="user-management__header">
+    <h2 class="user-management__title">Zarządzanie użytkownikami</h2>
+  </div>
+  <app-user-filter
+    [users]="users"
+    (filteredUsers)="onFilterChange($event)"
+  ></app-user-filter>
+
+  <app-user-list [users]="filteredUsers"></app-user-list>
+</div>

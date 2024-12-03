@@ -1,0 +1,21 @@
+<div class="modal-overlay" *ngIf="showOverlay">
+  <div class="modal-container" [ngClass]="size">
+    <div class="modal-header">
+      <h2>{{ title }}</h2>
+      <button mat-icon-button (click)="close()" aria-label="Close">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+
+    <div class="modal-content">
+      <ng-content></ng-content>
+    </div>
+
+    <div *ngIf="showButtons" class="modal-footer">
+      <button mat-flat-button color="warn" (click)="reject()">Anuluj</button>
+      <button mat-flat-button color="primary" (click)="confirm()">
+        Potwierdź
+      </button>
+    </div>
+  </div>
+</div>

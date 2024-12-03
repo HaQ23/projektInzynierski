@@ -1,0 +1,30 @@
+<div class="filter-controls">
+  <mat-form-field appearance="outline">
+    <mat-label>Wyszukaj użytkownika</mat-label>
+    <input
+      matInput
+      [(ngModel)]="usernameSearch"
+      (ngModelChange)="applyFilters()"
+      placeholder="Wpisz nazwę użytkownika"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Wyszukaj email</mat-label>
+    <input
+      matInput
+      [(ngModel)]="emailSearch"
+      (ngModelChange)="applyFilters()"
+      placeholder="Wpisz email"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Filtruj po statusie</mat-label>
+    <mat-select [(ngModel)]="selectedStatus" (selectionChange)="applyFilters()">
+      <mat-option value="">Wszystkie</mat-option>
+      <mat-option value="enabled">Aktywne</mat-option>
+      <mat-option value="disabled">Zablokowane</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

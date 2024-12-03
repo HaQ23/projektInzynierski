@@ -1,0 +1,10 @@
+<div class="offer-management">
+  <div class="offer-management__header">
+    <h2 class="offer-management__title">Zarządzanie ofertami</h2>
+  </div>
+
+  <app-offer-list
+    [offers]="offers"
+    (offerDeleted)="onOfferDeleted()"
+  ></app-offer-list>
+</div>

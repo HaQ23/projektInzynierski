@@ -135,9 +135,13 @@ public class AuthController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtUtils.generateJwtToken(authentication);
         RefreshToken refreshToken = refreshTokenService.createOrGetRefreshToken(user);
+
+        String role = user.getRole().getName();
+
         return ResponseEntity.ok()
                 .header(HttpHeaders.SET_COOKIE, authService.createJwtCookie(jwt).toString())
                 .header(HttpHeaders.SET_COOKIE, authService.createRefreshTokenCookie(refreshToken.getToken()).toString())
-                .body(new UserResponse(user.getUsername(), user.getEmail(), user.getFirstname(), user.getLastname()));
+                .body(new UserResponse(user.getUsername(), user.getEmail(), user.getFirstname(), user.getLastname(), role));
     }
+
 }

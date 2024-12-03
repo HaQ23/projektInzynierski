@@ -1,0 +1,21 @@
+<app-base-modal title="Dodaj lub edytuj ofertę" size="md" [showButtons]="true">
+  <div class="offer-form-modal-content">
+    <mat-form-field appearance="outline" class="offer-form-field">
+      <mat-label>Tytuł</mat-label>
+      <input
+        matInput
+        [(ngModel)]="offerTitle"
+        placeholder="Podaj tytuł oferty"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="offer-form-field">
+      <mat-label>Opis</mat-label>
+      <textarea
+        matInput
+        [(ngModel)]="offerDescription"
+        placeholder="Podaj opis oferty"
+      ></textarea>
+    </mat-form-field>
+  </div>
+</app-base-modal>

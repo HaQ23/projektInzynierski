@@ -1,0 +1,150 @@
+<section class="settings">
+  <div *ngIf="userInfo" class="user-info">
+    <h2>Twoje dane</h2>
+    <form [formGroup]="userInfoForm" (ngSubmit)="onUpdateUserInfo()">
+      <div class="form-group">
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            type="email"
+            formControlName="email"
+            required
+            autocomplete="email"
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Imię</mat-label>
+          <input
+            matInput
+            formControlName="firstname"
+            required
+            autocomplete="given-name"
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Nazwisko</mat-label>
+          <input
+            matInput
+            formControlName="lastname"
+            required
+            autocomplete="family-name"
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Numer telefonu</mat-label>
+          <input
+            matInput
+            formControlName="phoneNumber"
+            required
+            autocomplete="tel"
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Adres</mat-label>
+          <input
+            matInput
+            formControlName="address"
+            required
+            autocomplete="street-address"
+          />
+        </mat-form-field>
+      </div>
+
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="userInfoForm.invalid || !isUserInfoChanged"
+      >
+        Zaktualizuj dane
+      </button>
+    </form>
+  </div>
+
+  <div class="change-password">
+    <h2>Zmień hasło</h2>
+    <form [formGroup]="passwordForm" (ngSubmit)="onChangePassword()">
+      <input type="text" autocomplete="username" hidden />
+      <div class="form-group">
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Stare hasło</mat-label>
+          <input
+            matInput
+            [type]="hideOldPassword ? 'password' : 'text'"
+            formControlName="oldPassword"
+            required
+            autocomplete="current-password"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            type="button"
+            (click)="toggleOldPasswordVisibility()"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hideOldPassword"
+          >
+            <mat-icon>{{
+              hideOldPassword ? "visibility_off" : "visibility"
+            }}</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Nowe hasło</mat-label>
+          <input
+            matInput
+            [type]="hideNewPassword ? 'password' : 'text'"
+            formControlName="newPassword"
+            required
+            minlength="6"
+            autocomplete="new-password"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            type="button"
+            (click)="toggleNewPasswordVisibility()"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hideNewPassword"
+          >
+            <mat-icon>{{
+              hideNewPassword ? "visibility_off" : "visibility"
+            }}</mat-icon>
+          </button>
+
+          <mat-error
+            *ngIf="passwordForm.get('newPassword')?.hasError('minlength')"
+          >
+            Hasło musi składać się z co najmniej 8 znaków.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="passwordForm.invalid"
+      >
+        Zmień hasło
+      </button>
+    </form>
+  </div>
+
+  <p class="message" *ngIf="message">{{ message }}</p>
+</section>
