@@ -6,6 +6,7 @@ import { ReservationManagementComponent } from './components/reservation-managem
 import { adminRoleGuard } from './guards/admin-role.guard';
 import { OfferManagementComponent } from './components/offer-management/offer-management.component';
 import { EmployeeManagementComponent } from './components/employee-management/employee-management.component';
+import { EmployeeOfferManagementComponent } from './components/employee-offer-management/employee-offer-management.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
       {
         path: 'employee-management',
         component: EmployeeManagementComponent,
+      },
+      {
+        path: 'employee-offer-management',
+        component: EmployeeOfferManagementComponent,
       },
     ],
   },

@@ -1,0 +1,51 @@
+<app-base-modal title="Dodaj nową ofertę" size="md" [showButtons]="true">
+  <form
+    [formGroup]="offerForm"
+    (ngSubmit)="nextConfirm()"
+    *ngIf="availableOffers.length > 0; else noOffersTemplate"
+  >
+    <mat-form-field appearance="outline">
+      <mat-label>Wybierz ofertę</mat-label>
+      <mat-select formControlName="offerId" required>
+        <mat-option *ngFor="let offer of availableOffers" [value]="offer.id">
+          {{ offer.title }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="offerForm.get('offerId')?.invalid">
+        Musisz wybrać ofertę.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Cena</mat-label>
+      <input matInput type="number" formControlName="price" />
+      <mat-error *ngIf="offerForm.get('price')?.invalid">
+        Cena jest wymagana i nie może być mniejsza niż 0.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Czas trwania (minuty)</mat-label>
+      <input matInput type="number" formControlName="time" />
+      <mat-error *ngIf="offerForm.get('time')?.invalid">
+        Czas trwania jest wymagany i musi zawierać tylko cyfry.
+      </mat-error>
+    </mat-form-field>
+  </form>
+
+  <ng-template #noOffersTemplate>
+    <div class="no-offers-message">
+      <p>
+        Brak możliwości dodania nowej oferty. Najpierw dodaj ofertę do systemu,
+        aby przydzielić ją pracownikowi.
+      </p>
+      <button
+        mat-flat-button
+        color="primary"
+        (click)="redirectToOfferManagement()"
+      >
+        Dodaj ofertę
+      </button>
+    </div>
+  </ng-template>
+</app-base-modal>

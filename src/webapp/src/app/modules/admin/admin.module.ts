@@ -17,6 +17,10 @@ import { OfferFormModalComponent } from './components/offer-management/offer-for
 import { EmployeeManagementComponent } from './components/employee-management/employee-management.component';
 import { EmployeeListComponent } from './components/employee-management/employee-list/employee-list.component';
 import { EmployeeFormModalComponent } from './components/employee-management/employee-form-modal/employee-form-modal.component';
+import { EmployeeOfferManagementComponent } from './components/employee-offer-management/employee-offer-management.component';
+import { EmployeeOfferListComponent } from './components/employee-offer-management/employee-offer-list/employee-offer-list.component';
+import { EditEmployeeOfferModalComponent } from './components/employee-offer-management/edit-employee-offer-modal/edit-employee-offer-modal.component';
+import { AddEmployeeOfferModalComponent } from './components/employee-offer-management/add-employee-offer-modal/add-employee-offer-modal.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +37,11 @@ import { EmployeeFormModalComponent } from './components/employee-management/emp
     EmployeeManagementComponent,
     EmployeeListComponent,
     EmployeeFormModalComponent,
+    EmployeeOfferManagementComponent,
+    EmployeeOfferListComponent,
+
+    EditEmployeeOfferModalComponent,
+    AddEmployeeOfferModalComponent,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,59 @@
+<div class="employee-offer-management__header">
+  <h2 class="employee-offer-management__title">
+    Zarządzanie ofertami pracowników
+  </h2>
+  <div class="employee-offer-management__controls">
+    <button
+      class="employee-offer-management__controls-item"
+      mat-flat-button
+      color="primary"
+      (click)="addEmployeeOffer()"
+    >
+      Dodaj nową ofertę
+    </button>
+    <mat-form-field
+      appearance="outline"
+      class="employee-offer-management__controls-item"
+    >
+      <mat-label>Wybierz pracownika</mat-label>
+      <mat-select
+        [(ngModel)]="selectedEmployeeId"
+        (selectionChange)="fetchEmployeeOffers()"
+      >
+        <mat-option *ngFor="let employee of employees" [value]="employee.id">
+          {{ employee.firstName }} {{ employee.lastName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field
+      appearance="outline"
+      class="employee-offer-management__controls-item"
+    >
+      <mat-label>Filtruj po nazwie usługi</mat-label>
+      <input
+        matInput
+        [(ngModel)]="offerSearch"
+        (ngModelChange)="applyFilters()"
+        placeholder="Wpisz nazwę usługi"
+      />
+    </mat-form-field>
+    <mat-form-field
+      appearance="outline"
+      class="employee-offer-management__controls-item"
+    >
+      <mat-label>Sortuj według</mat-label>
+      <mat-select [(ngModel)]="selectedSort" (selectionChange)="sortOffers()">
+        <mat-option value="title">Tytuł usługi</mat-option>
+        <mat-option value="price">Cena</mat-option>
+        <mat-option value="time">Czas trwania</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+
+<app-employee-offer-list
+  [offers]="filteredEmployeeOffers"
+  (offerDeleted)="onOfferDeleted($event)"
+  (offerEdited)="onOfferEdited($event)"
+></app-employee-offer-list>
