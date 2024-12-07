@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d3666300-076b-49f4-a2bb-be845c977875" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/discovery-server/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/discovery-server/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/discovery-server/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/discovery-server/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/discovery-server/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/discovery-server/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/discovery-server/src/main/java/pl/reservations/discovery_server/DiscoveryServerApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/discovery-server/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/discovery-server/src/test/java/pl/reservations/discovery_server/DiscoveryServerApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/main/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/main/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/main/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/main/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/main/src/main/java/pl/reservations/core/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/main/src/main/java/pl/reservations/core/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/main/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/main/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/notification-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/notification-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/notification-service/src/main/java/pl/reservations/notification/notification_service/NotificationServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/notification-service/src/main/java/pl/reservations/notification/notification_service/NotificationServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/notification-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/notification-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/spy.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/spy.log" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="2pslhOmhoDwIGXpO79XggWB1mcv" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "25-creation-of-microservices-for-notifications-together-with-kafka",
+    "last_opened_file_path": "C:/Users/dobos/Desktop/Projekt Inżynierski/projektInzynierski/src/backend"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d3666300-076b-49f4-a2bb-be845c977875" name="Changes" comment="" />
+      <created>1733562781784</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1733562781784</updated>
+    </task>
+    <servers />
+  </component>
+</project>
