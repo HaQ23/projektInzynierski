@@ -375,7 +375,9 @@ export class ServicesReservationModalComponent
         employeeOfferId: this.selectedOffer.id,
       };
 
-      this.employeeService.addReservation(reservationRequest).subscribe({
+      this.asyncRequest(
+        this.employeeService.addReservation(reservationRequest)
+      ).subscribe({
         next: () => {
           this.modalService.close();
           const resultModalRef =

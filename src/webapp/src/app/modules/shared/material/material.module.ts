@@ -13,6 +13,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [],
   exports: [
@@ -30,6 +31,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatPaginatorModule,
     MatRadioModule,
     MatMenuModule,
+    MatProgressSpinnerModule,
   ],
 })
 export class MaterialModule {}
