@@ -1,29 +1,25 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { EmployeeDto } from '../shared/model/api-models';
 import { EmployeeService } from './services/employee.service';
-import { Subscription } from 'rxjs';
+import { BaseComponent } from '../shared/base/base.component';
 
 @Component({
   selector: 'app-services',
   templateUrl: './services.component.html',
   styleUrl: './services.component.scss',
 })
-export class ServicesComponent implements OnInit {
-  private sub!: Subscription;
-  constructor(private employeeService: EmployeeService) {}
+export class ServicesComponent extends BaseComponent implements OnInit {
+  employees: EmployeeDto[] = [];
+
+  constructor(private employeeService: EmployeeService) {
+    super();
+  }
+
   ngOnInit(): void {
-    this.employeeService.getAllEmployees().subscribe();
-    this.sub = this.employeeService.employeeList.subscribe(
+    this.asyncRequest(this.employeeService.getAllEmployees()).subscribe(
       (data: EmployeeDto[]) => {
         this.employees = data;
       }
     );
-  }
-  employees: EmployeeDto[] = [];
-
-  ngOnDestroy(): void {
-    if (this.sub) {
-      this.sub.unsubscribe();
-    }
   }
 }
