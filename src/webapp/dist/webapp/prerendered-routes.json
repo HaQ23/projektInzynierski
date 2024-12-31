@@ -1,0 +1,21 @@
+{
+  "routes": [
+    "/",
+    "/admin",
+    "/admin/employee-management",
+    "/admin/employee-offer-management",
+    "/admin/offer-management",
+    "/admin/reservation-management",
+    "/admin/user-management",
+    "/auth",
+    "/auth/activate-account",
+    "/auth/activation-account",
+    "/auth/login",
+    "/auth/register",
+    "/services",
+    "/user",
+    "/user/settings",
+    "/user/terms-and-conditions",
+    "/user/visits"
+  ]
+}
