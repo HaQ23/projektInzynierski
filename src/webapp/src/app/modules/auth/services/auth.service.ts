@@ -16,7 +16,7 @@ import { environment } from '../../../../environments/environment';
   providedIn: 'root',
 })
 export class AuthService {
-  private baseUrl = environment.apiUrl;
+  private baseUrl = `${environment.apiUrl}/auth`;
   private user$ = new BehaviorSubject<User | null>(null);
   private readonly activationSessionKey = 'pendingActivationEmail';
   constructor(private http: HttpClient, private router: Router) {}
