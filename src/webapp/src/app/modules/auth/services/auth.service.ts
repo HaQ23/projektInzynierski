@@ -11,12 +11,12 @@ import {
   UserResponse,
   User,
 } from '../models/models';
-
+import { environment } from '../../../../environments/environment';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private baseUrl = '/api/auth';
+  private baseUrl = environment.apiUrl;
   private user$ = new BehaviorSubject<User | null>(null);
   private readonly activationSessionKey = 'pendingActivationEmail';
   constructor(private http: HttpClient, private router: Router) {}
