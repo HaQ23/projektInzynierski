@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  //   apiUrl: 'https://twoja-domena.com/api',
+  apiUrl: 'https://quickcut-bakend.onrender.com/api',
 };
