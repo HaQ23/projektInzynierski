@@ -10,13 +10,13 @@ import {
   ReservationDetailsDto,
   UserDetailsDto,
 } from '../../shared/model/api-models';
-
+import { environment } from '../../../../environments/environment';
 @Injectable({
   providedIn: 'root',
 })
 export class AdminService {
-  private readonly apiUrl = '/api';
-
+  //private readonly apiUrl = '/api';
+  private readonly apiUrl = environment.apiUrl;
   constructor(private http: HttpClient) {}
 
   getEmployees(): Observable<EmployeeDto[]> {

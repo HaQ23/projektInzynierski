@@ -7,13 +7,12 @@ import {
   EmployeeOfferRequest,
   OfferDto,
 } from '../../shared/model/api-models';
-
+import { environment } from '../../../../environments/environment';
 @Injectable({
   providedIn: 'root',
 })
 export class EmployeeOfferService {
-  private apiUrl = '/api/employee/offer';
-
+  private readonly apiUrl = `${environment.apiUrl}/employee/offer`;
   constructor(private http: HttpClient) {}
 
   getEmployeeOffers(employeeId: number): Observable<EmployeeOfferDetailsDto[]> {

@@ -8,13 +8,12 @@ import {
 } from '../../shared/model/api-models';
 
 import { MessageResponse } from '../../auth/models/models';
-
+import { environment } from '../../../../environments/environment';
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  private baseUrl = '/api/';
-
+  private readonly baseUrl = environment.apiUrl;
   constructor(private http: HttpClient) {}
 
   getUpcomingReservations(): Observable<ReservationDto[]> {
