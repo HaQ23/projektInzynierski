@@ -22,7 +22,7 @@ public class RegistrationService {
     }
 
     private void sendActivationEmail(User user) {
-        String activationLink = "http://localhost:8080/api/auth/activate?token=" + user.getActivationToken();
+        String activationLink = "https://quickcut.onrender.com/api/auth/activate?token=" + user.getActivationToken();
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(user.getEmail());
         message.setSubject("Account Activation");

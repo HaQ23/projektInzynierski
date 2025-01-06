@@ -84,7 +84,7 @@ public class AuthService {
     }
 
     public void sendActivationEmail(User user) throws Exception {
-        String activationLink = "http://localhost:4200/auth/activate-account?token=" + user.getActivationToken();
+        String activationLink = "https://quickcut.onrender.com/auth/activate-account?token=" + user.getActivationToken();
         emailService.sendActivationEmail(user.getEmail(), activationLink);
     }
 
