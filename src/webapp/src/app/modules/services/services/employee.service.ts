@@ -7,12 +7,12 @@ import {
 } from '../../shared/model/api-models';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject, tap } from 'rxjs';
-
+import { environment } from '../../../../environments/environment';
 @Injectable({
   providedIn: 'root',
 })
 export class EmployeeService {
-  private apiUrl = '/api';
+  private apiUrl = environment.apiUrl;
   employeeList: Subject<EmployeeDto[]> = new Subject<EmployeeDto[]>();
 
   constructor(private httpClinet: HttpClient) {}
