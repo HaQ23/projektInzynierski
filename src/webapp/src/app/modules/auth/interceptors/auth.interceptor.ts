@@ -12,6 +12,8 @@ import { AuthService } from '../services/auth.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
+  private isRefreshing = false;
+
   constructor(private authService: AuthService) {}
 
   intercept(
@@ -31,15 +33,30 @@ export class AuthInterceptor implements HttpInterceptor {
               () => new Error('Unauthorized: Refresh token expired.')
             );
           }
-          return this.authService.refreshToken().pipe(
-            switchMap(() => next.handle(request)),
-            catchError(() => {
-              this.authService.logout().subscribe();
-              return throwError(
-                () => new Error('Unauthorized: Token refresh failed.')
-              );
-            })
-          );
+
+          if (!this.isRefreshing) {
+            this.isRefreshing = true;
+
+            return this.authService.refreshToken().pipe(
+              switchMap(() => {
+                this.isRefreshing = false;
+                return next.handle(
+                  request.clone({
+                    withCredentials: true,
+                  })
+                );
+              }),
+              catchError(() => {
+                this.isRefreshing = false;
+                this.authService.logout().subscribe();
+                return throwError(
+                  () => new Error('Unauthorized: Token refresh failed.')
+                );
+              })
+            );
+          } else {
+            return throwError(() => error);
+          }
         } else {
           return throwError(() => error);
         }
