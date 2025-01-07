@@ -3,9 +3,9 @@ FROM openjdk:11-jre-slim
 # Ustawienie katalogu roboczego
 WORKDIR /opt/kafka
 
-# Pobranie i rozpakowanie Apache Kafka
+# Instalacja zależności i pobranie Kafka z alternatywnego źródła
 RUN apt-get update && apt-get install -y wget && \
-    wget https://downloads.apache.org/kafka/3.5.1/kafka_2.13-3.5.1.tgz && \
+    wget https://archive.apache.org/dist/kafka/3.5.1/kafka_2.13-3.5.1.tgz && \
     tar -xzf kafka_2.13-3.5.1.tgz --strip 1 && \
     rm kafka_2.13-3.5.1.tgz && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
