@@ -10,7 +10,7 @@ ENV ZOOKEEPER_TICK_TIME=2000
 ENV ZOOKEEPER_INIT_LIMIT=10
 ENV ZOOKEEPER_SYNC_LIMIT=5
 
-# Instalacja Kafki i Zookeepera
+# Instalacja narzędzi i Kafki
 RUN apt-get update && \
     apt-get install -y wget && \
     wget https://archive.apache.org/dist/kafka/3.5.1/kafka_2.13-3.5.1.tgz && \
@@ -18,8 +18,8 @@ RUN apt-get update && \
     mv kafka_2.13-3.5.1 /opt/kafka && \
     rm kafka_2.13-3.5.1.tgz
 
-# Utwórz katalogi dla Zookeepera
-RUN mkdir -p ${ZOOKEEPER_DATA_DIR}
+# Utwórz katalogi dla Zookeepera i Kafki
+RUN mkdir -p ${ZOOKEEPER_DATA_DIR} ${KAFKA_LOG_DIR}
 
 # Konfiguracja Zookeepera
 RUN echo "tickTime=${ZOOKEEPER_TICK_TIME}\n\
@@ -42,7 +42,7 @@ log.retention.check.interval.ms=300000" > /opt/kafka/config/server.properties
 # Otwórz porty
 EXPOSE ${ZOOKEEPER_PORT} ${KAFKA_PORT}
 
-# CMD dla uruchomienia obu procesów
+# Skrypt startowy dla Zookeepera i Kafki
 CMD bash -c "/opt/kafka/bin/zookeeper-server-start.sh /opt/kafka/config/zookeeper.properties & \
              sleep 5 && \
              /opt/kafka/bin/kafka-server-start.sh /opt/kafka/config/server.properties"
