@@ -1,34 +1,40 @@
 FROM openjdk:11-jre-slim
 
-# Ustawienie zmiennych środowiskowych
-ENV KAFKA_VERSION=3.5.1 \
-    SCALA_VERSION=2.13 \
-    KAFKA_HOME=/opt/kafka \
-    ZOOKEEPER_DIR=/tmp/zookeeper \
-    KAFKA_LOGS=/tmp/kafka-logs
+# Ustawienie katalogu roboczego
+WORKDIR /opt/kafka
 
-# Pobieranie i instalacja Kafki
-RUN apt-get update && apt-get install -y wget bash curl && \
-    wget https://downloads.apache.org/kafka/${KAFKA_VERSION}/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz && \
-    tar -xzf kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz && \
-    mv kafka_${SCALA_VERSION}-${KAFKA_VERSION} ${KAFKA_HOME} && \
-    rm kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz && \
-    mkdir -p ${ZOOKEEPER_DIR} ${KAFKA_LOGS}
+# Pobranie Apache Kafka
+RUN apt-get update && apt-get install -y wget && \
+    wget https://downloads.apache.org/kafka/3.5.1/kafka_2.13-3.5.1.tgz && \
+    tar -xzf kafka_2.13-3.5.1.tgz --strip 1 && \
+    rm kafka_2.13-3.5.1.tgz
 
-# Dodanie konfiguracji Zookeepera
-RUN echo "tickTime=2000" > ${KAFKA_HOME}/config/zookeeper.properties && \
-    echo "dataDir=${ZOOKEEPER_DIR}" >> ${KAFKA_HOME}/config/zookeeper.properties && \
-    echo "clientPort=2181" >> ${KAFKA_HOME}/config/zookeeper.properties
+# Dodanie konfiguracji Zookeepera w linii
+RUN echo "tickTime=2000\n\
+initLimit=5\n\
+syncLimit=2\n\
+dataDir=/tmp/zookeeper\n\
+clientPort=2181" > config/zookeeper.properties
 
-# Dodanie konfiguracji Kafki
-RUN echo "log.dirs=${KAFKA_LOGS}" > ${KAFKA_HOME}/config/server.properties && \
-    echo "zookeeper.connect=localhost:2181" >> ${KAFKA_HOME}/config/server.properties
+# Dodanie konfiguracji Kafka w linii
+RUN echo "broker.id=1\n\
+log.dirs=/tmp/kafka-logs\n\
+zookeeper.connect=localhost:2181\n\
+num.network.threads=3\n\
+num.io.threads=8\n\
+log.retention.hours=168\n\
+log.segment.bytes=1073741824\n\
+log.retention.check.interval.ms=300000\n\
+num.partitions=1\n\
+default.replication.factor=1\n\
+offsets.topic.replication.factor=1" > config/server.properties
 
-# Ustawienia portów
+# Bezpośrednie dodanie skryptu startowego w CMD
 EXPOSE 9092 2181
 
-# Skrypt startowy
 CMD bash -c "\
-    ${KAFKA_HOME}/bin/zookeeper-server-start.sh ${KAFKA_HOME}/config/zookeeper.properties & \
-    sleep 5 && \
-    ${KAFKA_HOME}/bin/kafka-server-start.sh ${KAFKA_HOME}/config/server.properties"
+echo 'Starting ZooKeeper...' && \
+bin/zookeeper-server-start.sh config/zookeeper.properties & \
+sleep 5 && \
+echo 'Starting Kafka...' && \
+bin/kafka-server-start.sh config/server.properties"
