@@ -194,6 +194,7 @@ public class AuthService {
         return ResponseCookie.from("refreshToken", refreshToken)
                 .httpOnly(true)
                 .secure(true)
+                .sameSite("None")
                 .path("/")
                 .maxAge(60 * 60 * 24 * 7)
                 .build();
