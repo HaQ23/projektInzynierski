@@ -13,7 +13,7 @@ import { environment } from '../../../../environments/environment';
   providedIn: 'root',
 })
 export class UserService {
-  private readonly baseUrl = environment.apiUrl;
+  private readonly baseUrl = `${environment.apiUrl}/`;
   constructor(private http: HttpClient) {}
 
   getUpcomingReservations(): Observable<ReservationDto[]> {
