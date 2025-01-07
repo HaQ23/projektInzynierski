@@ -185,6 +185,7 @@ public class AuthService {
         return ResponseCookie.from("jwt", jwt)
                 .httpOnly(true)
                 .secure(true)
+                .sameSite("None")
                 .path("/")
                 .maxAge(60 * 15)
                 .build();
@@ -204,6 +205,7 @@ public class AuthService {
         return ResponseCookie.from(cookieName, null)
                 .httpOnly(true)
                 .secure(true)
+                .sameSite("None")
                 .path("/")
                 .maxAge(0)
                 .build();
