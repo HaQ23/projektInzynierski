@@ -1,48 +1,34 @@
 FROM openjdk:11-jre-slim
 
-# Ustaw zmienne środowiskowe
-ENV ZOOKEEPER_PORT=2181
-ENV KAFKA_PORT=9092
-ENV ZOOKEEPER_DATA_DIR=/tmp/zookeeper
-ENV KAFKA_LOG_DIR=/tmp/kafka-logs
-ENV KAFKA_BROKER_ID=1
-ENV ZOOKEEPER_TICK_TIME=2000
-ENV ZOOKEEPER_INIT_LIMIT=10
-ENV ZOOKEEPER_SYNC_LIMIT=5
+# Ustawienie zmiennych środowiskowych
+ENV KAFKA_VERSION=3.5.1 \
+    SCALA_VERSION=2.13 \
+    KAFKA_HOME=/opt/kafka \
+    ZOOKEEPER_DIR=/tmp/zookeeper \
+    KAFKA_LOGS=/tmp/kafka-logs
 
-# Instalacja narzędzi i Kafki
-RUN apt-get update && \
-    apt-get install -y wget && \
-    wget https://archive.apache.org/dist/kafka/3.5.1/kafka_2.13-3.5.1.tgz && \
-    tar -xzf kafka_2.13-3.5.1.tgz && \
-    mv kafka_2.13-3.5.1 /opt/kafka && \
-    rm kafka_2.13-3.5.1.tgz
+# Pobieranie i instalacja Kafki
+RUN apt-get update && apt-get install -y wget bash curl && \
+    wget https://downloads.apache.org/kafka/${KAFKA_VERSION}/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz && \
+    tar -xzf kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz && \
+    mv kafka_${SCALA_VERSION}-${KAFKA_VERSION} ${KAFKA_HOME} && \
+    rm kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz && \
+    mkdir -p ${ZOOKEEPER_DIR} ${KAFKA_LOGS}
 
-# Utwórz katalogi dla Zookeepera i Kafki
-RUN mkdir -p ${ZOOKEEPER_DATA_DIR} ${KAFKA_LOG_DIR}
+# Dodanie konfiguracji Zookeepera
+RUN echo "tickTime=2000" > ${KAFKA_HOME}/config/zookeeper.properties && \
+    echo "dataDir=${ZOOKEEPER_DIR}" >> ${KAFKA_HOME}/config/zookeeper.properties && \
+    echo "clientPort=2181" >> ${KAFKA_HOME}/config/zookeeper.properties
 
-# Konfiguracja Zookeepera
-RUN echo "tickTime=${ZOOKEEPER_TICK_TIME}\n\
-dataDir=${ZOOKEEPER_DATA_DIR}\n\
-clientPort=${ZOOKEEPER_PORT}\n\
-initLimit=${ZOOKEEPER_INIT_LIMIT}\n\
-syncLimit=${ZOOKEEPER_SYNC_LIMIT}" > /opt/kafka/config/zookeeper.properties
+# Dodanie konfiguracji Kafki
+RUN echo "log.dirs=${KAFKA_LOGS}" > ${KAFKA_HOME}/config/server.properties && \
+    echo "zookeeper.connect=localhost:2181" >> ${KAFKA_HOME}/config/server.properties
 
-# Konfiguracja Kafki
-RUN echo "broker.id=${KAFKA_BROKER_ID}\n\
-log.dirs=${KAFKA_LOG_DIR}\n\
-zookeeper.connect=localhost:${ZOOKEEPER_PORT}\n\
-listeners=PLAINTEXT://0.0.0.0:${KAFKA_PORT}\n\
-num.network.threads=3\n\
-num.io.threads=8\n\
-log.retention.hours=168\n\
-log.segment.bytes=1073741824\n\
-log.retention.check.interval.ms=300000" > /opt/kafka/config/server.properties
+# Ustawienia portów
+EXPOSE 9092 2181
 
-# Otwórz porty
-EXPOSE ${ZOOKEEPER_PORT} ${KAFKA_PORT}
-
-# Skrypt startowy dla Zookeepera i Kafki
-CMD bash -c "/opt/kafka/bin/zookeeper-server-start.sh /opt/kafka/config/zookeeper.properties & \
-             sleep 5 && \
-             /opt/kafka/bin/kafka-server-start.sh /opt/kafka/config/server.properties"
+# Skrypt startowy
+CMD bash -c "\
+    ${KAFKA_HOME}/bin/zookeeper-server-start.sh ${KAFKA_HOME}/config/zookeeper.properties & \
+    sleep 5 && \
+    ${KAFKA_HOME}/bin/kafka-server-start.sh ${KAFKA_HOME}/config/server.properties"
