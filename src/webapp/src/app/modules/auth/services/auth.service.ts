@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import {
   LoginRequest,
@@ -26,6 +26,7 @@ export class AuthService {
       .post<UserResponse>(`${this.baseUrl}/login`, loginRequest)
       .pipe(
         tap((response) => {
+          console.log(response);
           this.user$.next(response);
         })
       );
@@ -93,5 +94,13 @@ export class AuthService {
   updateUser(updatedUser: UserResponse): void {
     this.user$.next(updatedUser);
     console.log(this.user$.value);
+  }
+  isAuthenticatedAsync(): Observable<boolean> {
+    return this.http.get<any>(`${this.baseUrl}/autologin`).pipe(
+      map((response) => {
+        return response && response.username ? true : false;
+      }),
+      catchError(() => of(false))
+    );
   }
 }
