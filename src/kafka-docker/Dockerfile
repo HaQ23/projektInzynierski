@@ -1,21 +1,12 @@
-# Pobranie obrazu Kafki
 FROM confluentinc/cp-kafka:7.0.1
 
-# Ustawienia Kafki dla pracy bez Zookeepera
-ENV KAFKA_PROCESS_ROLES=broker
-ENV KAFKA_NODE_ID=1
-ENV KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=PLAINTEXT:PLAINTEXT
-ENV KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://${RENDER_EXTERNAL_HOSTNAME}:9092
-ENV KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092
-ENV KAFKA_CONTROLLER_QUORUM_VOTERS=1@localhost:9093
+# Skopiuj plik konfiguracyjny Kafka
+COPY kafka.properties /etc/kafka/kafka.properties
+
+# Ustawienia środowiskowe
+ENV KAFKA_BROKER_ID=1
 ENV KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
 ENV KAFKA_LOG_DIRS=/tmp/kafka-logs
-ENV KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR=1
-ENV KAFKA_TRANSACTION_STATE_LOG_MIN_ISR=1
-ENV KAFKA_AUTO_CREATE_TOPICS_ENABLE=true
 
-# Otwieramy port Kafki
-EXPOSE 9092
-
-# Domyślny CMD do uruchamiania Kafki
+# Uruchom Kafka z plikiem konfiguracyjnym
 CMD ["kafka-server-start", "/etc/kafka/kafka.properties"]
