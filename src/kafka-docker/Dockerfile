@@ -13,7 +13,7 @@ ENV ZOOKEEPER_SYNC_LIMIT=5
 # Instalacja Kafki i Zookeepera
 RUN apt-get update && \
     apt-get install -y wget && \
-    wget https://downloads.apache.org/kafka/3.5.1/kafka_2.13-3.5.1.tgz && \
+    wget https://archive.apache.org/dist/kafka/3.5.1/kafka_2.13-3.5.1.tgz && \
     tar -xzf kafka_2.13-3.5.1.tgz && \
     mv kafka_2.13-3.5.1 /opt/kafka && \
     rm kafka_2.13-3.5.1.tgz
