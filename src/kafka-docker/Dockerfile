@@ -12,10 +12,11 @@ RUN apt-get update && apt-get install -y wget && \
 
 # Dodanie konfiguracji Zookeepera
 RUN echo "tickTime=2000\n\
-initLimit=5\n\
-syncLimit=2\n\
+initLimit=10\n\
+syncLimit=5\n\
 dataDir=/tmp/zookeeper\n\
-clientPort=2181" > config/zookeeper.properties
+clientPort=2181\n\
+maxClientCnxns=0" > config/zookeeper.properties
 
 # Dodanie konfiguracji Kafka
 RUN echo "broker.id=1\n\
@@ -28,7 +29,10 @@ log.segment.bytes=1073741824\n\
 log.retention.check.interval.ms=300000\n\
 num.partitions=1\n\
 default.replication.factor=1\n\
-offsets.topic.replication.factor=1" > config/server.properties
+offsets.topic.replication.factor=1\n\
+socket.request.max.bytes=104857600\n\
+message.max.bytes=1000012\n\
+replica.fetch.max.bytes=104857600" > config/server.properties
 
 # Otworzenie portów
 EXPOSE 9092 2181
