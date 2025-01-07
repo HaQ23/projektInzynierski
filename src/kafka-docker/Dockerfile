@@ -31,19 +31,10 @@ log.retention.hours=168\n\
 log.segment.bytes=1073741824\n\
 log.retention.check.interval.ms=300000" > /etc/kafka/server.properties
 
-# Skrypt startowy
-RUN echo "#!/bin/bash\n\
-echo 'Starting Zookeeper...'\n\
-zookeeper-server-start /etc/kafka/zookeeper.properties &\n\
-sleep 5\n\
-echo 'Starting Kafka...'\n\
-kafka-server-start /etc/kafka/server.properties" > /start.sh
-
-# Nadanie uprawnień do skryptu
-RUN chmod +x /start.sh
-
 # Otwórz porty Zookeepera i Kafki
 EXPOSE 2181 9092
 
-# Domyślny CMD
-CMD ["/start.sh"]
+# Domyślny CMD: Uruchom Zookeepera i Kafkę w jednym kontenerze
+CMD bash -c "zookeeper-server-start /etc/kafka/zookeeper.properties & \
+             sleep 5 && \
+             kafka-server-start /etc/kafka/server.properties"
