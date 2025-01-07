@@ -14,8 +14,8 @@ ENV KAFKA_LOG_DIRS=/tmp/kafka-logs
 # Otwórz porty dla Zookeepera i Kafki
 EXPOSE 2181 9092
 
-# Skopiuj skrypt startowy
-COPY start.sh /start.sh
+# Skopiuj skrypt startowy i nadaj odpowiednie uprawnienia
+COPY --chown=appuser:appuser start.sh /start.sh
 RUN chmod +x /start.sh
 
 # Domyślny CMD uruchamiający Zookeepera i Kafkę
