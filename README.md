@@ -1,7 +1,6 @@
 # 💇‍♂️ Aplikacja do zarządzania salonem fryzjerskim
 
-Projekt inżynierski autorstwa Krzysztofa Dobosza. Aplikacja umożliwia zarządzanie rezerwacjami oraz usługami salonu fryzjerskiego, skierowana zarówno do klientów, jak i administratorów salonu.
-## 🛠️ Technologie
+Projekt inżynierski autorstwa Krzysztofa Dobosza. Celem projektu było stworzenie kompleksowego systemu wspierającego pracę salonów fryzjerskich poprzez umożliwienie zarządzania rezerwacjami, klientami, ofertami i personelem.## 🛠️ Technologie
 
 - **Frontend:** Angular, Angular Material, TypeScript, HTML, SCSS
 - **Backend:** Java, Spring Boot, Spring Data, Spring Security, Hibernate, Lombok
@@ -10,11 +9,40 @@ Projekt inżynierski autorstwa Krzysztofa Dobosza. Aplikacja umożliwia zarządz
 
 ## 📌 Główne funkcje
 
-- Rejestracja i logowanie z obsługą tokenów JWT
-- Rezerwacja usług fryzjerskich u konkretnych pracowników
-- Przypomnienia i potwierdzenia wizyt za pomocą systemu powiadomień
-- Zarządzanie użytkownikami, pracownikami, usługami i rezerwacjami przez panel administratora
-- Automatyczne powiadomienia (Apache Kafka + e-mail)
+### ✅ Rejestracja i logowanie (z obsługą JWT)
+- Bezpieczne logowanie i rejestracja z użyciem tokenów JWT.
+- Proces aktywacji konta poprzez e-mail.
+- Obsługa błędów i komunikatów walidacyjnych po stronie klienta i serwera.
+
+### 💬 Interaktywny widok usług i pracowników
+- Możliwość przeglądania dostępnych usług fryzjerskich przypisanych do konkretnych pracowników.
+- Dynamiczne filtrowanie usług według pracownika i typu zabiegu.
+
+### 📅 System rezerwacji
+- Rezerwacja terminu u wybranego fryzjera w dogodnym dniu i godzinie.
+- Interaktywny kalendarz z wyszarzonymi niedostępnymi terminami.
+- Automatyczne przypomnienia i potwierdzenia wizyt wysyłane e-mailem (Apache Kafka).
+
+### 👤 Panel klienta
+- Przegląd zaplanowanych i zakończonych wizyt.
+- Możliwość anulowania rezerwacji.
+- Edycja danych osobowych i kontaktowych.
+- Historia wszystkich usług z możliwością przeglądu szczegółów.
+
+### 🛠️ Panel administratora
+- Zarządzanie użytkownikami: edycja danych, blokowanie kont, przegląd aktywności.
+- Zarządzanie pracownikami: dodawanie, usuwanie, przypisywanie ofert.
+- Zarządzanie ofertami: pełna edycja, dodawanie i usuwanie usług.
+- Przypisywanie usług do konkretnych pracowników z określeniem ceny i czasu trwania.
+
+### 🔁 Powiadomienia i automatyzacja
+- Obsługa powiadomień e-mail za pomocą Apache Kafka.
+- Przypomnienia o wizytach, potwierdzenia i anulacje realizowane asynchronicznie.
+
+### 🔒 Bezpieczeństwo i autoryzacja
+- Pełna ochrona zasobów z wykorzystaniem Spring Security.
+- Uwierzytelnianie użytkowników poprzez tokeny JWT oraz odświeżające (refresh tokens).
+- Obsługa autologowania i wygasania sesji.
 
 ## 🧱 Architektura systemu
 
