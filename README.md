@@ -31,18 +31,26 @@ System oparty na architekturze mikroserwisowej:
 - **Klient:** może rezerwować wizyty, zarządzać nimi, edytować profil
 - **Administrator:** pełna kontrola nad użytkownikami, pracownikami, usługami i rezerwacjami
 
+
 ## 🖼️ Zrzuty ekranu
 
-### Logowanie
-![Logowanie](https://raw.githubusercontent.com/HaQ23/projektInzynierski/main/screenshots/login.png)
+### 🔐 Logowanie
+![Logowanie](https://raw.githubusercontent.com/HaQ23/projektInzynierski/main/screenshots/strona_logowania.png)
 
-### Rejestracja
-![Rejestracja](https://raw.githubusercontent.com/HaQ23/projektInzynierski/main/screenshots/register.png)
+### 📝 Rejestracja
+![Rejestracja](https://raw.githubusercontent.com/HaQ23/projektInzynierski/main/screenshots/strona_rejestracji.png)
 
-### Rezerwacja usługi
-![Rezerwacja](https://raw.githubusercontent.com/HaQ23/projektInzynierski/main/screenshots/reservation.png)
+### 💇‍♀️ Przegląd usług
+![Usługi](https://raw.githubusercontent.com/HaQ23/projektInzynierski/main/screenshots/strona_uslug.png)
 
-### Panel administratora
-![Panel Admina](https://raw.githubusercontent.com/HaQ23/projektInzynierski/main/screenshots/admin_panel.png)
+### 📅 Rezerwacja usługi
+![Rezerwacja](https://raw.githubusercontent.com/HaQ23/projektInzynierski/main/screenshots/modal_rezerwacji_uslugi.png)
 
+### 👤 Profil użytkownika
+![Profil](https://raw.githubusercontent.com/HaQ23/projektInzynierski/main/screenshots/profil_uzytkownika.png)
 
+### 🧰 Panel administratora – zarządzanie ofertami
+![Zarządzanie ofertami](https://raw.githubusercontent.com/HaQ23/projektInzynierski/main/screenshots/zarzadzanie_ofertami.png)
+
+### 🧾 Diagram bazy danych (ERD)
+![Diagram ERD](https://raw.githubusercontent.com/HaQ23/projektInzynierski/main/screenshots/diagram_erd.png)
