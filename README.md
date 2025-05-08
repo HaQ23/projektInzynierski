@@ -41,10 +41,10 @@ System oparty na architekturze mikroserwisowej:
 ![Rejestracja](https://raw.githubusercontent.com/HaQ23/projektInzynierski/main/screenshots/strona_rejestracji.png)
 
 ### 💇‍♀️ Przegląd usług
-![Usługi](https://raw.githubusercontent.com/HaQ23/projektInzynierski/main/screenshots/strona_uslug.png)
+![Usługi](https://raw.githubusercontent.com/HaQ23/projektInzynierski/main/screenshots/strona_usług.png)
 
 ### 📅 Rezerwacja usługi
-![Rezerwacja](https://raw.githubusercontent.com/HaQ23/projektInzynierski/main/screenshots/modal_rezerwacji_uslugi.png)
+![Rezerwacja](https://raw.githubusercontent.com/HaQ23/projektInzynierski/main/screenshots/modal_rezerwacji_usługi.png)
 
 ### 👤 Profil użytkownika
 ![Profil](https://raw.githubusercontent.com/HaQ23/projektInzynierski/main/screenshots/profil_uzytkownika.png)
